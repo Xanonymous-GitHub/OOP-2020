@@ -1,2 +1,0 @@
-/Users/xanonymous/Desktop/108820003_hw/src/init project test/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/Users/xanonymous/Desktop/108820003_hw/src/init project test/cmake-build-debug/CMakeFiles/edit_cache.dir
