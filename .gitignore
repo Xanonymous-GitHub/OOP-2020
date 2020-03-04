@@ -33,3 +33,9 @@
 
 # IDE
 .idea
+
+#bin folders
+bin
+obj
+
+.DS_Store
