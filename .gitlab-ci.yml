@@ -6,6 +6,7 @@ stages:
 build:
     stage:build
     script:
+        - sudo apt install g++
         - make clean
         - make
 test:
