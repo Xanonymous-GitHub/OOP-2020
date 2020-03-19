@@ -4,11 +4,13 @@
 
 
 ```bash
-[==========] Running 5 tests from 1 test suite.
+[==========] Running 6 tests from 1 test suite.
 [----------] Global test environment set-up.
-[----------] 5 tests from InnerProduct
+[----------] 6 tests from InnerProduct
 [ RUN      ] InnerProduct.Dot1
 [       OK ] InnerProduct.Dot1 (0 ms)
+[ RUN      ] InnerProduct.Dot2
+[       OK ] InnerProduct.Dot2 (0 ms)
 [ RUN      ] InnerProduct.ConstructorAnd
 [       OK ] InnerProduct.ConstructorAnd (0 ms)
 [ RUN      ] InnerProduct.isZero
@@ -17,9 +19,9 @@
 [       OK ] InnerProduct.length (0 ms)
 [ RUN      ] InnerProduct.getDim
 [       OK ] InnerProduct.getDim (0 ms)
-[----------] 5 tests from InnerProduct (0 ms total)
+[----------] 6 tests from InnerProduct (0 ms total)
 
 [----------] Global test environment tear-down
-[==========] 5 tests from 1 test suite ran. (0 ms total)
-[  PASSED  ] 5 tests.
+[==========] 6 tests from 1 test suite ran. (0 ms total)
+[  PASSED  ] 6 tests.
 ```
