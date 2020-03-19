@@ -1,4 +1,5 @@
 #include "ut_dot.h"
+#include "ut_vector.h"
 #include <gtest/gtest.h>
 int main(int argc, char **argv) {
     testing::InitGoogleTest(&argc, argv);
