@@ -1,7 +1,7 @@
 #include "../src/dot.h"
 #include <gtest/gtest.h>
-TEST(Math, dot) {
-    double u[2] = {1, 0};
-    double v[2] = {1, 1};
-    ASSERT_EQ(1, dot(u, 2, v, 2));
+TEST(InnerProduct, Dot1) {
+    double u[] = {1, 0, 2, 9, 4, 5};
+    double v[] = {1, 1, 3, 98, 21, 34};
+    ASSERT_EQ(1143, dot(u, 6, v, 6));
 }
