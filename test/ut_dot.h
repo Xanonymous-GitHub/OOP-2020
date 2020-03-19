@@ -10,8 +10,10 @@ TEST(InnerProduct, Dot2) {
     double u[] = {1, 0, 2, 9, 4, 5};
     double v[] = {1, 1, 3, 98, 21};
     try {
-        dot(u, 6, v, 5);
+        dot(u, 6, v, 9);
     } catch (...) {
         ASSERT_TRUE(true);
+        return;
     }
+    ASSERT_FALSE(true);
 }
