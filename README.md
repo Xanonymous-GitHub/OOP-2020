@@ -1,6 +1,7 @@
 # 108820003_HW
 
-Ha Me Gua: >>>  My HomeWork of OOP class at NTUT 2020.
+## Hw-02 Test result: >>>  My HomeWork of OOP class at NTUT 2020.
+
 
 ```bash
 [==========] Running 5 tests from 1 test suite.
