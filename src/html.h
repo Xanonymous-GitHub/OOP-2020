@@ -25,15 +25,39 @@ public:
     void outputHtml() {
         std::ofstream file;
         // the main html file's name should be 'index.html', it's rule!
+        /*
+            All websites are a collection of files in folders. 
+            Loading a page is essentially picking out the file out want to display and the browser then loading it. 
+            If you point out the exact file, then you wouldn't need the "index" page, 
+            but in order to make it easier, the standards "W3C"set decided that if a file wasn't mentioned, 
+            the server should look for either index or default. Those are the two options.
+            "Index" literally means a list of items in a book so it made a good parallel and has become the more popular option by far.
+            
+            Hope you can fix it next time ~ 
+
+                    Best Regards, Xanonymous.
+        */
         file.open("main.html"); // Should not use illegal file name.
         file << this->render();
         file.close();
     }
 
 private:
+
+    /*
+        Although html files are accustomed to using lowercase tags, 
+        uppercase tags will not cause browsers to display errors, 
+        but mixed case is not recommended, 
+        because this will lead to confusing file layout and unclear structure.
+
+        Hope you can fix it next time ~ 
+
+                Best Regards, Xanonymous.
+    */
+
     std::vector <Text> tags ;
-    const std::string html_head = "<html><body>";
-    const std::string html_end = "</body></html>";
+    const std::string html_head = "<HTML><body>";
+    const std::string html_end = "</body></HTML>";
 };
 
 #endif
