@@ -6,12 +6,12 @@ TEST(Html, appendChild) {
     Text t;
     t.setText("four-at-hello");
     h.appendChild(t);
-    ASSERT_EQ("<html><body><p>four-at-hello</p></body></html>", h.render());
+    ASSERT_EQ("<HTML><body><p>four-at-hello</p></body></HTML>", h.render());
 }
 
 TEST(Html, render) {
     Html h;
-    ASSERT_EQ("<html><body></body></html>", h.render());
+    ASSERT_EQ("<HTML><body></body></HTML>", h.render());
 }
 
 TEST(Html, outputHtml) {
@@ -26,7 +26,7 @@ TEST(Html, outputHtml) {
     ASSERT_TRUE(file.is_open());
     std::string content;
     file >> content;
-    ASSERT_EQ("<html><body><p>92387492837592837498</p></body></html>", content);
+    ASSERT_EQ("<HTML><body><p>92387492837592837498</p></body></HTML>", content);
     std::remove(pos);
     file.close();
 }
