@@ -41,3 +41,5 @@ obj
 .DS_Store
 
 *.html
+
+.vscode
