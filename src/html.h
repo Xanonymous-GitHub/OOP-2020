@@ -6,27 +6,34 @@
 #include <fstream>
 #include <vector>
 
-using namespace std;
 class Html {
-private:
-    vector<Text> tags;
-    const string html_head = "<HTML><body>";
-    const string html_end = "</body></HTML>";
-
 public:
     void appendChild(Text child) {
+        tags.push_back(child);
     }
 
-    string render() {
+    std::string render() {
+        std::string result = "";
+        result += html_head;
+        for (int i = 0; i < this->tags.size(); i++) {
+            result += tags[i].render();
+        }
+        result += html_end;
+        return result;
     }
 
     void outputHtml() {
-        ofstream file;
+        std::ofstream file;
         // the main html file's name should be 'index.html', it's rule!
-        file.open("main.html");
+        file.open("main.html"); // Should not use illegal file name.
         file << this->render();
         file.close();
     }
+
+private:
+    std::vector <Text> tags ;
+    const std::string html_head = "<html><body>";
+    const std::string html_end = "</body></html>";
 };
 
 #endif

@@ -1,16 +1,21 @@
 #ifndef TEXT_H
 #define TEXT_H
-using namespace std;
+
+#include <cstring>
+
 class Text {
-private:
-    string content;
 
 public:
-    string render() {
+    std::string render() {
+        return "<p>" + this->content + "</p>";
     }
 
-    void setText(string content) {
+    void setText(std::string content) {
+        this->content = content;
     }
-    
+
+private:
+    std::string content = "";
 };
+
 #endif
