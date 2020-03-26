@@ -1,11 +1,12 @@
-.PHONY:	directories clean stat test
+all: directories bin/ut_all
 
-all:	directories bin/ut_all
+bin/ui_main: src/main.cpp src/html.h src/text.h
+	g++ -std=c++11 -o bin/ui_main src/main.cpp
 
 bin/ut_all: obj/ut_main.o
 	g++ -std=c++11 -o bin/ut_all obj/ut_main.o -lgtest -lpthread
 
-obj/ut_main.o:  test/*.cpp test/*.h src/*.h
+obj/ut_main.o: test/ut_main.cpp test/ut_html.h test/ut_text.h src/html.h src/text.h
 	g++ -std=c++11 -c test/ut_main.cpp -o obj/ut_main.o
 
 directories:
@@ -16,6 +17,3 @@ clean:
 
 stat:
 	wc src/* test/*
-
-test:
-	./bin/ut_all

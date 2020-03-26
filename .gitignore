@@ -39,3 +39,5 @@ bin
 obj
 
 .DS_Store
+
+*.html
