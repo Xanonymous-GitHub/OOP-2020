@@ -15,3 +15,8 @@ TEST(Text, setText) {
     t.setText("");
     ASSERT_EQ("<p></p>", t.render());
 }
+
+TEST(Text, empty) {
+    Text t;
+    ASSERT_EQ("<p></p>", t.render());
+}
