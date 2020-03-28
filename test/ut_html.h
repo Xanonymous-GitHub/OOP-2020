@@ -9,6 +9,18 @@ TEST(Html, appendChild) {
     ASSERT_EQ("<HTML><body><p>four-at-hello</p></body></HTML>", h.render());
 }
 
+TEST(Html, appendMultiChild) {
+    Html h;
+    Text t1, t2, t3;
+    t1.setText("123321");
+    t2.setText("456654");
+    t3.setText("789987");
+    h.appendChild(t1);
+    h.appendChild(t2);
+    h.appendChild(t3);
+    ASSERT_EQ("<HTML><body><p>123321</p><p>456654</p><p>789987</p></body></HTML>", h.render());
+}
+
 TEST(Html, render) {
     Html h;
     ASSERT_EQ("<HTML><body></body></HTML>", h.render());
