@@ -13,7 +13,7 @@ public:
     }
 
     s render() {
-        return "<img src=\'" + this->src + "\' " + "style=\'" + this->top + this->left + "\'/>";
+        return "<img src=\'" + this->src + "\' " + "style=\'" + this->top + this->left + "position:absolute;" + "\'/>";
     }
 
 private:
