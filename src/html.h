@@ -11,15 +11,15 @@ typedef std::string s;
 class Html {
 public:
     void appendText(Text child) {
-        this->content += child.render();
+        this->texts += child.render();
     }
 
     void appendImage(Image child) {
-        this->content += child.render();
+        this->images += child.render();
     }
 
     s render() {
-        return this->html_head + this->content + this->html_end;
+        return this->html_head + this->images + this->texts + this->html_end;
     }
 
     void outputHtml() {
@@ -30,9 +30,8 @@ public:
     }
 
 private:
-    std::vector<Text> texts;
-    std::vector<Image> images;
-    s content;
+    s texts;
+    s images;
     const s html_head = "<HTML><body>";
     const s html_end = "</body></HTML>";
 };

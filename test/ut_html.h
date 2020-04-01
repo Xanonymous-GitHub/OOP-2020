@@ -22,7 +22,7 @@ TEST(HTML, render) {
     Image i;
     h.appendText(t);
     h.appendImage(i);
-    ASSERT_EQ("<HTML><body><p style='color:#000000;font-size:16px;'></p><img src='' style='top:0px;left:0px;position:absolute;'/></body></HTML>", h.render());
+    ASSERT_EQ("<HTML><body><img src='' style='top:0px;left:0px;position:absolute;'/><p style='color:#000000;font-size:16px;'></p></body></HTML>", h.render());
 }
 
 TEST(HTML, appendMultiChild) {
@@ -33,5 +33,5 @@ TEST(HTML, appendMultiChild) {
     h.appendImage(i1);
     h.appendText(t2);
     h.appendImage(i2);
-    ASSERT_EQ("<HTML><body><p style='color:#000000;font-size:16px;'></p><img src='' style='top:0px;left:0px;position:absolute;'/><p style='color:#000000;font-size:16px;'></p><img src='' style='top:0px;left:0px;position:absolute;'/></body></HTML>", h.render());
+    ASSERT_EQ("<HTML><body><img src='' style='top:0px;left:0px;position:absolute;'/><img src='' style='top:0px;left:0px;position:absolute;'/><p style='color:#000000;font-size:16px;'></p><p style='color:#000000;font-size:16px;'></p></body></HTML>", h.render());
 }
