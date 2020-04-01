@@ -19,7 +19,7 @@ public:
     }
 
     s render() {
-        return this->content;
+        return this->html_head + this->content + this->html_end;
     }
 
     void outputHtml() {

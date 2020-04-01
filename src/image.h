@@ -1,5 +1,6 @@
 #ifndef IMAGE_H
 #define IMAGE_H
+#include <string>
 typedef std::string s;
 class Image {
 public:
@@ -7,12 +8,12 @@ public:
         this->src = src;
     }
     void setPosition(s top, s left) {
-        this->top = "top" + top + ";";
-        this->left = "left" + left + ";";
+        this->top = "top:" + top + ";";
+        this->left = "left:" + left + ";";
     }
 
     s render() {
-        return "<img src=\'" + this->src + "\' " + "style=\'" + this->top + this->left + "\'>";
+        return "<img src=\'" + this->src + "\' " + "style=\'" + this->top + this->left + "\'/>";
     }
 
 private:
