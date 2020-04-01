@@ -1,21 +1,29 @@
 #ifndef TEXT_H
 #define TEXT_H
-
-#include <cstring>
-
+#include <vector>
+typedef std::string s;
 class Text {
-
 public:
-    std::string render() {
-        return "<p>" + this->content + "</p>";
+    s render() {
+        return "<p style=\'" + this->color + this->fontSize + "\'>" + this->content + "</p>";
     }
 
-    void setText(std::string content) {
+    void setColor(s color) {
+        this->color = "color:" + color + ";";
+    }
+
+    void setFontSize(s fontSize) {
+        this->fontSize = "font-size:" + fontSize + ";";
+    }
+
+    void setText(s content) {
         this->content = content;
     }
 
 private:
-    std::string content = "";
+    s content = "";
+    s color = "color:#000000;";
+    s fontSize = "font-size:16px;";
 };
 
 #endif
