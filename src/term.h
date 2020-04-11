@@ -1,3 +1,5 @@
+#ifndef TERM_H
+#define TERM_H
 #define $Term(x) Term x(new_c, new_exponent);return x
 
 class Term
@@ -82,3 +84,4 @@ private:
     double c = 0.0;
     int exponent = 0;
 };
+#endif

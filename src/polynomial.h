@@ -1,10 +1,14 @@
-#include "term.h"
+#ifndef POLYNOMIAL_H
+#define POLYNOMIAL_H
+#include "./term.h"
+#include <iostream>
 class Polynomial
 {
 public:
     // consturctor
     Polynomial(Term *terms, int degree)
     {
+        this->degree = degree;
         int size_of_c = degree + 1;
         c = new Term[size_of_c];
         degree = 0;
@@ -96,3 +100,4 @@ private:
     Term *c;
     int degree;
 };
+#endif

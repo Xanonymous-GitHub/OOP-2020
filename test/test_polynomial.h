@@ -106,7 +106,7 @@ TEST(Poly, degree_of_polynomial)
         terms1[i] = Term(c1[i], i);
     }
     Polynomial poly1(terms1, degree1);
-    ASSERT_EQ(degree1, poly1.getDegree);
+    ASSERT_EQ(degree1, poly1.getDegree());
 }
 
 TEST(Poly, evaluate_by_a_given_x)
