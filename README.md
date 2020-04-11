@@ -1,5 +1,5 @@
 ```bash
-[==========] Running 16 tests from 2 test cases.
+[==========] Running 17 tests from 2 test cases.
 [----------] Global test environment set-up.
 [----------] 9 tests from Term_test
 [ RUN      ] Term_test.default_constructor
@@ -20,9 +20,9 @@
 [       OK ] Term_test.access_exponent_of_a_term (0 ms)
 [ RUN      ] Term_test.evaluate_by_a_given_x
 [       OK ] Term_test.evaluate_by_a_given_x (0 ms)
-[----------] 9 tests from Term_test (2 ms total)
+[----------] 9 tests from Term_test (14 ms total)
 
-[----------] 7 tests from Poly
+[----------] 8 tests from Poly
 [ RUN      ] Poly.consturctor
 [       OK ] Poly.consturctor (0 ms)
 [ RUN      ] Poly.copy_constructor
@@ -35,11 +35,13 @@
 [       OK ] Poly.get_designate_term_by_exponent (0 ms)
 [ RUN      ] Poly.degree_of_polynomial
 [       OK ] Poly.degree_of_polynomial (0 ms)
+[ RUN      ] Poly.degree_of_polynomial_zero
+[       OK ] Poly.degree_of_polynomial_zero (0 ms)
 [ RUN      ] Poly.evaluate_by_a_given_x
 [       OK ] Poly.evaluate_by_a_given_x (0 ms)
-[----------] 7 tests from Poly (2 ms total)
+[----------] 8 tests from Poly (12 ms total)
 
 [----------] Global test environment tear-down
-[==========] 16 tests from 2 test cases ran. (5 ms total)
-[  PASSED  ] 16 tests.
+[==========] 17 tests from 2 test cases ran. (30 ms total)
+[  PASSED  ] 17 tests.
 ```

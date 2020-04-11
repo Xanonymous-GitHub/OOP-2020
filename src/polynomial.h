@@ -76,15 +76,14 @@ public:
     {
         if (exponent > degree)
         {
-            Term packed_term(0, exponent);
-            return packed_term;
+            throw "not have this Term!";
         }
         else
         {
             Term packed_term(c[exponent].getCoefficient(), exponent);
             return packed_term;
         }
-        }
+    }
 
     // degree of polynomial
     int getDegree()

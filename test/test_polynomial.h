@@ -95,6 +95,7 @@ TEST(Poly, get_designate_term_by_exponent)
     {
         ASSERT_NEAR(c1[i], poly1.getTermByExponent(i).getCoefficient(), 0.001);
     }
+    ASSERT_ANY_THROW(poly1.getTermByExponent(8).getCoefficient());
 }
 
 TEST(Poly, degree_of_polynomial)
