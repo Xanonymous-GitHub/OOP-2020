@@ -74,9 +74,17 @@ public:
     // get designate term by exponent
     Term getTermByExponent(int exponent)
     {
-        Term packed_term(c[exponent].getCoefficient(), exponent);
-        return packed_term;
-    }
+        if (exponent > degree)
+        {
+            Term packed_term(0, exponent);
+            return packed_term;
+        }
+        else
+        {
+            Term packed_term(c[exponent].getCoefficient(), exponent);
+            return packed_term;
+        }
+        }
 
     // degree of polynomial
     int getDegree()

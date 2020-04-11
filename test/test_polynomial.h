@@ -110,6 +110,19 @@ TEST(Poly, degree_of_polynomial)
     ASSERT_EQ(degree1, poly1.getDegree());
 }
 
+TEST(Poly, degree_of_polynomial_zero)
+{
+    const int degree1 = 0;
+    Term terms1[degree1 + 1];
+    double c1[] = {1};
+    for (int i = 0; i < degree1 + 1; i++)
+    {
+        terms1[i] = Term(c1[i], i);
+    }
+    Polynomial poly1(terms1, degree1);
+    ASSERT_EQ(degree1, poly1.getDegree());
+}
+
 TEST(Poly, evaluate_by_a_given_x)
 {
     const int degree1 = 3;
