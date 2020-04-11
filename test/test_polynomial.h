@@ -98,6 +98,29 @@ TEST(Poly, get_designate_term_by_exponent)
     ASSERT_ANY_THROW(poly1.getTermByExponent(8).getCoefficient());
 }
 
+TEST(Poly, operator_equal)
+{
+    const int degree1 = 6, degree2 = 3, degree3 = 6;
+    Term terms1[degree1 + 1], terms2[degree2 + 1], terms3[degree3 + 1];
+    double c1[] = {1, 2, 3, 4.2, -5, 6, 7}, c2[] = {0, 1, 2, 3}, c3[] = {1, 2, 3, 4.2, -5, 6, 7};
+    for (int i = 0; i < degree1 + 1; i++)
+    {
+        terms1[i] = Term(c1[i], i);
+    }
+    for (int i = 0; i < degree2 + 1; i++)
+    {
+        terms2[i] = Term(c2[i], i);
+    }
+    for (int i = 0; i < degree3 + 1; i++)
+    {
+        terms3[i] = Term(c3[i], i);
+    }
+    Polynomial poly1(terms1, degree1), poly2(terms2, degree2), poly3(terms3, degree3);
+
+    ASSERT_TRUE(poly1 == poly3);
+    ASSERT_FALSE(poly1 == poly2);
+}
+
 TEST(Poly, degree_of_polynomial)
 {
     const int degree1 = 6;

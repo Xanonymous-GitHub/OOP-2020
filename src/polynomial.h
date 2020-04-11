@@ -71,6 +71,20 @@ public:
         return new_poly;
     }
 
+    bool operator==(const Polynomial &p)
+    {
+        if (p.degree != this->degree)
+        {
+            return false;
+        }
+        for (int i = 0; i < p.degree + 1; i++)
+        {
+            if (p.c[i].getCoefficient() != c[i].getCoefficient())
+                return false;
+        }
+        return true;
+    }
+
     // get designate term by exponent
     Term getTermByExponent(int exponent)
     {
