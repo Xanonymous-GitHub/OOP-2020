@@ -17,7 +17,7 @@ public:
     // constructor
     Term(double coefficient, int exponent)
     {
-        c = coefficient;
+        this->c = coefficient;
         this->exponent = exponent;
     }
 
