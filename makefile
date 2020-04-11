@@ -1,19 +1,15 @@
+.PHONY: directories clean
+
 all: directories bin/ut_all
 
-bin/ui_main: src/main.cpp src/html.h src/text.h src/image.h
-	g++ -std=c++11 -o bin/ui_main src/main.cpp
-
-bin/ut_all: obj/ut_main.o
-	g++ -std=c++11 -o bin/ut_all obj/ut_main.o -lgtest -lpthread
-
-obj/ut_main.o: test/ut_main.cpp test/ut_html.h test/ut_text.h test/ut_image.h src/html.h src/text.h src/image.h
-	g++ -std=c++11 -c test/ut_main.cpp -o obj/ut_main.o
+bin/ut_all: test/ut_main.cpp test/test_polynomial.h test/test_term.h  src/polynomial.h src/term.h
+	g++ -std=c++11 test/ut_main.cpp -o bin/ut_all -lgtest -lpthread
 
 directories:
-	mkdir -p bin obj
+	mkdir -p bin
 
 clean:
-	rm -rf bin obj
+	rm -rf bin
 
 stat:
-	wc src/* test/*
+	wc src/*.h src/*.cpp test/*.h test/*.cpp
