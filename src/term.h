@@ -1,7 +1,9 @@
 #ifndef TERM_H
 #define TERM_H
-#define $Term(x) Term x(new_c, new_exponent);return x
-
+#define $Term(x)                 \
+    Term x(new_c, new_exponent); \
+    return x
+#include <cmath>
 class Term
 {
 public:
@@ -22,7 +24,7 @@ public:
     }
 
     // operator assignment
-    Term &operator=(Term const &t) // should return void. 
+    Term &operator=(Term const &t) // should return void.
     {
         // a good advice: there should NOT return any type, should be "void".
         // Because the idea of assignment is just to change self, not returning new thing.
@@ -72,12 +74,7 @@ public:
     // evaluate by a given x
     double evaluate(double x)
     {
-        int x_tmp = 1;
-        for (int i = 0; i < exponent; i++)
-        {
-            x_tmp *= x;
-        }
-        return c * x_tmp;
+        return c * pow(x, this->exponent);
     }
 
 private:

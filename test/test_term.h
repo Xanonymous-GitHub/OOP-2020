@@ -76,6 +76,6 @@ TEST(Term_test, evaluate_by_a_given_x)
     double x = 19.1;
     Term term1(coefficient1, exponent1);
     Term term2;
-    ASSERT_NEAR(445538.17687, term1.evaluate(x), 0.001);
+    ASSERT_NEAR(449009.6242514, term1.evaluate(x), 0.001);
     ASSERT_NEAR(0.0, term2.evaluate(x), 0.001);
 }
