@@ -1,6 +1,4 @@
-#define $Term(x)                 \
-    Term x(new_c, new_exponent); \
-    return x
+#define $Term(x) Term x(new_c, new_exponent);return x
 
 class Term
 {
@@ -18,15 +16,17 @@ public:
     Term(double coefficient, int exponent)
     {
         c = coefficient;
-        exponent = exponent;
+        this->exponent = exponent;
     }
 
     // operator assignment
-    Term &operator=(Term const &t)
+    Term &operator=(Term const &t) // should return void. 
     {
+        // a good advice: there should NOT return any type, should be "void".
+        // Because the idea of assignment is just to change self, not returning new thing.
         c = t.c;
         exponent = t.exponent;
-        return *this;
+        return *this; // should not do this, not needed.
     }
 
     // operator add
