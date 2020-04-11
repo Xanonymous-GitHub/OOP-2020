@@ -1,13 +1,14 @@
 #include "../src/polynomial.h"
 TEST(Poly, consturctor)
 {
-    const int degree1 = 6;
-    Term terms1[degree1 + 1], *terms2;
-    double c1[] = {1, 2, 3, 4.2, -5, 6, 7};
+    const int degree1 = 6, degree2 = 0;
+    Term terms1[degree1 + 1], terms2[degree2 + 1];
+    double c1[] = {1, 2, 3, 4.2, -5, 6, 7}, c2 = 0.0;
     for (int i = 0; i < degree1 + 1; i++)
     {
         terms1[i] = Term(c1[i], i);
     }
+    terms2[0] = Term(c2, 0);
     Polynomial poly1(terms1, degree1), poly2(terms2, 0);
     ASSERT_EQ(degree1, poly1.getDegree());
     ASSERT_EQ(0, poly2.getDegree());
