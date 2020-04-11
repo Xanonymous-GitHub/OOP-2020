@@ -98,6 +98,6 @@ public:
 
 private:
     Term *c;
-    int degree;
+    int degree = 0;
 };
 #endif
