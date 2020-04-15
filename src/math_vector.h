@@ -50,9 +50,19 @@ MathVector MathVector::operator+(MathVector &mathVector) {
     if (mathVector.get_dimension() != get_dimension()) {
         throw(NULL);
     }
-    double *new_entries = new double[mathVector.get_dimension()];
-    for (int i = 0; i < mathVector.get_dimension(); i++) {
+    double *new_entries = new double[get_dimension()];
+    for (int i = 0; i < get_dimension(); i++) {
         new_entries[i] = operator[](i) + mathVector[i];
+    }
+    MathVector new_MathVector(new_entries, get_dimension());
+    delete[] new_entries;
+    return new_MathVector;
+}
+
+MathVector MathVector::scale(double magnification) {
+    double *new_entries = new double[get_dimension()];
+    for (int i = 0; i < get_dimension(); i++) {
+        new_entries[i] = operator[](i) * magnification;
     }
     MathVector new_MathVector(new_entries, get_dimension());
     delete[] new_entries;
@@ -74,13 +84,13 @@ double *MathVector::get_whole_entries() const {
 void MathVector::initialize(double *entries, int dimension) {
     _dimension = dimension;
     _entries = new double[_dimension];
-    if (entries) {
+    if (entries == nullptr) {
         for (int i = 0; i < _dimension; i++) {
-            _entries[i] = entries[i];
+            _entries[i] = 0;
         }
     } else {
         for (int i = 0; i < _dimension; i++) {
-            _entries[i] = 0;
+            _entries[i] = entries[i];
         }
     }
 }
