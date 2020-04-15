@@ -50,26 +50,25 @@ MathVector MathVector::operator+(MathVector &mathVector) {
     if (mathVector.get_dimension() != get_dimension()) {
         throw(NULL);
     }
-    double *new_entries = new double[get_dimension()];
     for (int i = 0; i < get_dimension(); i++) {
-        new_entries[i] = operator[](i) + mathVector[i];
+        operator[](i) += mathVector[i];
     }
-    MathVector new_MathVector(new_entries, get_dimension());
-    delete[] new_entries;
-    return new_MathVector;
+    return *this;
 }
 
 MathVector MathVector::scale(double magnification) {
-    double *new_entries = new double[get_dimension()];
     for (int i = 0; i < get_dimension(); i++) {
-        new_entries[i] = operator[](i) * magnification;
+        operator[](i) *= magnification;
     }
-    MathVector new_MathVector(new_entries, get_dimension());
-    delete[] new_entries;
-    return new_MathVector;
+    return *this;
 }
 
 double &MathVector::operator[](int position) {
+    if ((position + 1) > get_dimension()) {
+        position = get_dimension() - 1;
+    } else if (position < 0) {
+        position = 0;
+    }
     return _entries[position];
 }
 
