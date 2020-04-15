@@ -74,10 +74,12 @@ double *MathVector::get_whole_entries() const {
 void MathVector::initialize(double *entries, int dimension) {
     _dimension = dimension;
     _entries = new double[_dimension];
-    for (int i = 0; i < _dimension; i++) {
-        if (entries) {
+    if (entries) {
+        for (int i = 0; i < _dimension; i++) {
             _entries[i] = entries[i];
-        } else {
+        }
+    } else {
+        for (int i = 0; i < _dimension; i++) {
             _entries[i] = 0;
         }
     }
