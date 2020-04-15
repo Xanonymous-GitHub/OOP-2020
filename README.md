@@ -1,49 +1,10 @@
-```bash
-[==========] Running 18 tests from 2 test cases.
-[----------] Global test environment set-up.
-[----------] 9 tests from Term_test
-[ RUN      ] Term_test.default_constructor
-[       OK ] Term_test.default_constructor (0 ms)
-[ RUN      ] Term_test.constructor
-[       OK ] Term_test.constructor (0 ms)
-[ RUN      ] Term_test.operator_assignment
-[       OK ] Term_test.operator_assignment (0 ms)
-[ RUN      ] Term_test.operator_add
-[       OK ] Term_test.operator_add (0 ms)
-[ RUN      ] Term_test.operator_multiply
-[       OK ] Term_test.operator_multiply (0 ms)
-[ RUN      ] Term_test.operator_equal
-[       OK ] Term_test.operator_equal (0 ms)
-[ RUN      ] Term_test.access_coefficient_of_a_term
-[       OK ] Term_test.access_coefficient_of_a_term (0 ms)
-[ RUN      ] Term_test.access_exponent_of_a_term
-[       OK ] Term_test.access_exponent_of_a_term (0 ms)
-[ RUN      ] Term_test.evaluate_by_a_given_x
-[       OK ] Term_test.evaluate_by_a_given_x (0 ms)
-[----------] 9 tests from Term_test (7 ms total)
-
-[----------] 9 tests from Poly
-[ RUN      ] Poly.consturctor
-[       OK ] Poly.consturctor (0 ms)
-[ RUN      ] Poly.copy_constructor
-[       OK ] Poly.copy_constructor (0 ms)
-[ RUN      ] Poly.operator_assignment
-[       OK ] Poly.operator_assignment (0 ms)
-[ RUN      ] Poly.operator_add
-[       OK ] Poly.operator_add (0 ms)
-[ RUN      ] Poly.get_designate_term_by_exponent
-[       OK ] Poly.get_designate_term_by_exponent (0 ms)
-[ RUN      ] Poly.operator_equal
-[       OK ] Poly.operator_equal (0 ms)
-[ RUN      ] Poly.degree_of_polynomial
-[       OK ] Poly.degree_of_polynomial (0 ms)
-[ RUN      ] Poly.degree_of_polynomial_zero
-[       OK ] Poly.degree_of_polynomial_zero (0 ms)
-[ RUN      ] Poly.evaluate_by_a_given_x
-[       OK ] Poly.evaluate_by_a_given_x (0 ms)
-[----------] 9 tests from Poly (7 ms total)
-
-[----------] Global test environment tear-down
-[==========] 18 tests from 2 test cases ran. (22 ms total)
-[  PASSED  ] 18 tests.
-```
+# OOP 2020 108820003 HW
+### All made by Xanonymous.
+We have received a notification requesting to "close the HomeWork code project" on github. 
+In response, we have taken or "may" have taken the following actions: 
+1. The git remote setting of github has been removed from this project. 
+2. The github repository url may have been changed or its permissions set to private.
+After these operations, you will not be able to obtain our github project,
+and of course you will not be able to see the original code.
+What is you can see is it just like the same as everything is never happened.
+Best regards, Xanonymous.
