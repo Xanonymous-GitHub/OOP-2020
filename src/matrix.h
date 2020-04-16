@@ -1,11 +1,13 @@
 #ifndef MATRIX_H
 #define MATRIX_H
+#include "iostream"
 #include "math_vector.h"
+using namespace std;
 
 class Matrix {
 public:
     Matrix(Matrix const &);
-    Matrix(MathVector *, int, int);
+    Matrix(MathVector[], int, int);
     ~Matrix();
     double at(int, int) const;
     void rowReduction();
@@ -34,70 +36,51 @@ Matrix::~Matrix() {
 }
 
 double Matrix::at(int row, int column) const {
-    return _mathvectors[row][column];
+    return _mathvectors[row - 1][column - 1];
 }
 
 void Matrix::rowReduction() {
-    int currentRow = 0;
-    for (int j = 0; j < _column; j++) {
-        bool zeroColumn = true;
-        for (int i = currentRow; i < _row; i++) {
-            if (!_mathvectors[i][j]) {
-                continue;
-            }
-            if (i != currentRow) {
-                swapMathVectorByPositions(i, currentRow);
-            }
-            zeroColumn = false;
-            _mathvectors[currentRow].scale(1 / _mathvectors[currentRow][j]);
-            break;
-        }
-        if (zeroColumn) {
-            continue;
-        }
-        for (int i = currentRow + 1; i < _row; i++) {
-            if (_mathvectors[i][j]) {
-                if (_mathvectors[i][j] > 0) {
-                    _mathvectors[i].scale(-1.0);
+    for (int j = 0; j < _column - 1; j++) {
+        if (!_mathvectors[j][j]) {
+            for (int i = j + 1; i < _row; i++) {
+                if (_mathvectors[j][j]) {
+                    swapMathVectorByPositions(j, i);
+                    break;
                 }
-                _mathvectors[i] = _mathvectors[i] + _mathvectors[currentRow].scale(_mathvectors[currentRow][j]);
             }
         }
-        currentRow++;
+        if (_mathvectors[j][j] != 1) {
+            _mathvectors[j] = _mathvectors[j].scale(1 / _mathvectors[j][j]);
+        }
+        for (int i = j + 1; i < _row; i++) {
+            if (_mathvectors[i][j]) {
+                _mathvectors[i] = _mathvectors[i] + _mathvectors[j].scale(-_mathvectors[i][j]);
+            }
+        }
+    }
+    if (_mathvectors[_row][_row] != 1) {
+        _mathvectors[_row] = _mathvectors[_row].scale(1 / _mathvectors[_row][_row]);
     }
 }
 
 void Matrix::backSubstitution() {
-    int currentRow = _row - 1;
-    for (int j = _column - 1; j >= 0; j--) {
-        bool zeroColumn = true;
-        for (int i = currentRow; i >=0; i--) {
-            if (!_mathvectors[i][j]) {
-                continue;
-            }
-            if (i != currentRow) {
-                swapMathVectorByPositions(i, currentRow);
-            }
-            zeroColumn = false;
-            _mathvectors[currentRow].scale(1 / _mathvectors[currentRow][j]);
-            break;
-        }
-        if (zeroColumn) {
-            continue;
-        }
-        for (int i = currentRow + 1; i < _row; i++) {
+    for (int i = 0; i < _row; i++) {
+        for (int j = i + 1; j < _column - 1; j++) {
             if (_mathvectors[i][j]) {
-                if (_mathvectors[i][j] > 0) {
-                    _mathvectors[i].scale(-1.0);
-                }
-                _mathvectors[i] = _mathvectors[i] + _mathvectors[currentRow].scale(_mathvectors[currentRow][j]);
+                _mathvectors[i] = _mathvectors[i] + _mathvectors[j].scale(-_mathvectors[i][j]);
             }
         }
-        currentRow++;
     }
 }
 
 MathVector Matrix::gaussianElimination() {
+    rowReduction();
+    backSubstitution();
+    MathVector result(_row);
+    for (int i = 0; i < _row; i++) {
+        result[i] = at(i + 1, _column);
+    }
+    return result;
 }
 
 void Matrix::swapMathVectorByPositions(int i, int j) {
@@ -106,13 +89,11 @@ void Matrix::swapMathVectorByPositions(int i, int j) {
     _mathvectors[j] = tmpVector;
 }
 
-inline void Matrix::initialize(MathVector *mathvectors, int row, int column) {
-    if (_row != row || _column != column) {
-        _mathvectors = new MathVector[_row];
-    }
+void Matrix::initialize(MathVector *mathvectors, int row, int column) {
+    _mathvectors = new MathVector[row];
     _row = row;
     _column = column;
-    if (mathvectors == nullptr) {
+    if (!mathvectors) {
         for (int i = 0; i < _column; i++) {
             _mathvectors[i] = MathVector();
         }

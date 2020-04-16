@@ -43,3 +43,5 @@ obj
 *.html
 
 .vscode
+
+*.dSYM
