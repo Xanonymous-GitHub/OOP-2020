@@ -12,7 +12,7 @@ public:
     MathVector operator+(MathVector &);
     MathVector &scale(double);
     double &operator[](int);
-    int get_dimension() const;
+    int dimension() const;
 
 private:
     void initialize(double *, int);
@@ -31,7 +31,7 @@ MathVector::MathVector(double *entries, int dimension) {
 }
 
 MathVector::MathVector(MathVector const &mathVector) {
-    initialize(mathVector._entries, mathVector.get_dimension());
+    initialize(mathVector._entries, mathVector.dimension());
 }
 
 MathVector::~MathVector() {
@@ -41,43 +41,43 @@ MathVector::~MathVector() {
 }
 
 MathVector &MathVector::operator=(MathVector const &mathVector) {
-    initialize(mathVector._entries, mathVector.get_dimension());
+    initialize(mathVector._entries, mathVector.dimension());
     return *this;
 }
 
 MathVector MathVector::operator+(MathVector &mathVector) {
-    if (mathVector.get_dimension() != get_dimension()) {
+    if (mathVector.dimension() != dimension()) {
         throw("");
     }
-    double *new_entries = new double[get_dimension()];
-    for (int i = 0; i < get_dimension(); i++) {
+    double *new_entries = new double[dimension()];
+    for (int i = 0; i < dimension(); i++) {
         new_entries[i] = operator[](i) + mathVector[i];
     }
-    MathVector *new_MathVector = new MathVector(new_entries, get_dimension());
+    MathVector *new_MathVector = new MathVector(new_entries, dimension());
     delete[] new_entries;
     return *new_MathVector;
 }
 
 MathVector &MathVector::scale(double magnification) {
-    double *new_entries = new double[get_dimension()];
-    for (int i = 0; i < get_dimension(); i++) {
+    double *new_entries = new double[dimension()];
+    for (int i = 0; i < dimension(); i++) {
         new_entries[i] = operator[](i) * magnification;
     }
-    MathVector *new_MathVector = new MathVector(new_entries, get_dimension());
+    MathVector *new_MathVector = new MathVector(new_entries, dimension());
     delete[] new_entries;
     return *new_MathVector;
 }
 
 double &MathVector::operator[](int position) {
-    if ((position + 1) > get_dimension()) {
-        position = get_dimension() - 1;
+    if ((position + 1) > dimension()) {
+        position = dimension() - 1;
     } else if (position < 0) {
         position = 0;
     }
     return _entries[position];
 }
 
-int MathVector::get_dimension() const {
+int MathVector::dimension() const {
     return _dimension;
 }
 
