@@ -5,3 +5,7 @@ class MatrixTest : public ::testing::Test {
 protected:
     void SetUp() override {}
 };
+
+TEST_F(MatrixTest, no) {
+    ASSERT_TRUE(true);
+}

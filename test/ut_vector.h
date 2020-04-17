@@ -3,11 +3,14 @@
 class VectorTest : public ::testing::Test {
 protected:
     void SetUp() override {
-
     }
     void TearDown() override {
     }
 };
+
+TEST_F(VectorTest, no) {
+    ASSERT_TRUE(true);
+}
 
 // TEST_F(VectorTest,){
 
