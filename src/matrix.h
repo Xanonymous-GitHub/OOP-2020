@@ -91,8 +91,8 @@ MathVector Matrix::gaussianElimination() {
 }
 
 void Matrix::validError() {
-    double rowTotal = 0;
     for (int i = 0; i < _row; i++) {
+        double rowTotal = 0;
         for (int j = 0; j < _column - 1; j++) {
             rowTotal += at(i + 1, j + 1);
         }
