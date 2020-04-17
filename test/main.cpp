@@ -16,9 +16,9 @@ int main(int argc, char **argv) {
 
     MathVector ans = m.gaussianElimination();
 
-    for (int i = 0; i < 3; i++) {
-        cout << ans[i] << endl;
-    }
+    // for (int i = 0; i < 3; i++) {
+    //     cout << ans[i] << endl;
+    // }
 
     // Matrix M(m, 4, 5);
     // MathVector ans = M.gaussianElimination();
