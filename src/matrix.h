@@ -113,11 +113,11 @@ void Matrix::initialize(MathVector *mathvectors, int row, int column) {
     _row = row;
     _column = column;
     if (!mathvectors) {
-        for (int i = 0; i < _column; i++) {
+        for (int i = 0; i < _row; i++) {
             _mathvectors[i] = MathVector();
         }
     } else {
-        for (int i = 0; i < _column; i++) {
+        for (int i = 0; i < _row; i++) {
             _mathvectors[i] = mathvectors[i];
         }
     }
