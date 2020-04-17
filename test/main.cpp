@@ -2,9 +2,9 @@
 #include <iostream>
 using namespace std;
 int main(int argc, char **argv) {
-    double d1[] = {0,4,8,3};
-    double d2[] = {9,5,3,2};
-    double d3[] = {6,2,1,0};
+    double d1[] = {1,2,3,3};
+    double d2[] = {4,5,6,2};
+    double d3[] = {7,8,9,0};
     MathVector m1(d1, 4), m2(d2, 4), m3(d3, 4);
     MathVector *ms = new MathVector[3];
 
@@ -16,9 +16,9 @@ int main(int argc, char **argv) {
 
     MathVector ans = m.gaussianElimination();
 
-    // for (int i = 0; i < 3; i++) {
-    //     cout << ans[i] << endl;
-    // }
+    for (int i = 0; i < 3; i++) {
+        cout << ans[i] << endl;
+    }
 
     // Matrix M(m, 4, 5);
     // MathVector ans = M.gaussianElimination();
