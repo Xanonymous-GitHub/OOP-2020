@@ -1,8 +1,6 @@
 #ifndef MATRIX_H
 #define MATRIX_H
-#include "iostream"
 #include "math_vector.h"
-using namespace std;
 
 class Matrix {
 public:
@@ -68,7 +66,6 @@ void Matrix::rowReduction() {
             }
         }
         if (at(currentRow + 1, j + 1)) {
-            cout << currentRow << endl;
             currentRow++;
         }
     }
