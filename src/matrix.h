@@ -75,12 +75,6 @@ void Matrix::rowReduction() {
     if (_mathvectors[_row - 1][_row - 1] != 1 && _mathvectors[_row - 1][_row - 1]) {
         _mathvectors[_row - 1] = _mathvectors[_row - 1].scale(1 / _mathvectors[_row - 1][_row - 1]);
     }
-    // for (int i = 0; i < _row; i++) {
-    //     for (int j = 0; j < _column; j++) {
-    //         cout << at(i + 1, j + 1) << " ";
-    //     }
-    //     cout << endl;
-    // }
 }
 
 void Matrix::backSubstitution() {
