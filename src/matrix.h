@@ -64,8 +64,8 @@ void Matrix::rowReduction() {
             }
         }
     }
-    if (_mathvectors[_row][_row] != 1) {
-        _mathvectors[_row] = _mathvectors[_row].scale(1 / _mathvectors[_row][_row]);
+    if (_mathvectors[_row - 1][_row - 1] != 1) {
+        _mathvectors[_row - 1] = _mathvectors[_row - 1].scale(1 / _mathvectors[_row - 1][_row - 1]);
     }
 }
 
