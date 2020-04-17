@@ -17,6 +17,7 @@ public:
 private:
     void initialize(MathVector *, int, int);
     void swapMathVectorByPositions(int, int);
+    void validError();
     int _row, _column;
     MathVector *_mathvectors;
 };
@@ -26,6 +27,11 @@ Matrix::Matrix(Matrix const &matrix) {
 }
 
 Matrix::Matrix(MathVector *mathvector, int row, int column) {
+    for (int i = 0; i < row; i++) {
+        if (mathvector[i].dimension() != column) {
+            throw("");
+        }
+    }
     initialize(mathvector, row, column);
 }
 
@@ -43,7 +49,7 @@ void Matrix::rowReduction() {
     for (int j = 0; j < _column - 1; j++) {
         if (!_mathvectors[j][j]) {
             for (int i = j + 1; i < _row; i++) {
-                if (_mathvectors[j][j]) {
+                if (_mathvectors[i][j]) {
                     swapMathVectorByPositions(j, i);
                     break;
                 }
@@ -75,12 +81,25 @@ void Matrix::backSubstitution() {
 
 MathVector Matrix::gaussianElimination() {
     rowReduction();
+    validError();
     backSubstitution();
     MathVector result(_row);
     for (int i = 0; i < _row; i++) {
         result[i] = at(i + 1, _column);
     }
     return result;
+}
+
+void Matrix::validError() {
+    double rowTotal = 0;
+    for (int i = 0; i < _row; i++) {
+        for (int j = 0; j < _column - 1; j++) {
+            rowTotal += at(i + 1, j + 1);
+        }
+        if (!rowTotal) {
+            throw("");
+        }
+    }
 }
 
 void Matrix::swapMathVectorByPositions(int i, int j) {

@@ -2,9 +2,9 @@
 #include <iostream>
 using namespace std;
 int main(int argc, char **argv) {
-    double d1[] = {4,4,0,28};
-    double d2[] = {4,5,1,37};
-    double d3[] = {16,20,8,168};
+    double d1[] = {0,4,8,3};
+    double d2[] = {9,5,3,2};
+    double d3[] = {6,2,1,0};
     MathVector m1(d1, 4), m2(d2, 4), m3(d3, 4);
     MathVector *ms = new MathVector[3];
 
