@@ -11,6 +11,7 @@ public:
     void rowReduction();
     void backSubstitution();
     MathVector gaussianElimination();
+    MathVector getAllContent();
 
 private:
     void initialize(MathVector *, int, int);
@@ -88,6 +89,10 @@ MathVector Matrix::gaussianElimination() {
     rowReduction();
     validError();
     backSubstitution();
+    return getAllContent();
+}
+
+MathVector Matrix::getAllContent() {
     MathVector result(_row);
     for (int i = 0; i < _row; i++) {
         result[i] = at(i + 1, _column);
