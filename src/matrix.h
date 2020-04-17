@@ -46,27 +46,41 @@ double Matrix::at(int row, int column) const {
 }
 
 void Matrix::rowReduction() {
+    int currentRow = 0;
     for (int j = 0; j < _column - 1; j++) {
-        if (!_mathvectors[j][j]) {
-            for (int i = j + 1; i < _row; i++) {
+        if (!_mathvectors[currentRow][j]) {
+            for (int i = currentRow + 1; i < _row; i++) {
                 if (_mathvectors[i][j]) {
-                    swapMathVectorByPositions(j, i);
+                    swapMathVectorByPositions(currentRow, i);
                     break;
                 }
             }
         }
-        if (_mathvectors[j][j] != 1) {
-            _mathvectors[j] = _mathvectors[j].scale(1 / _mathvectors[j][j]);
+        if (!_mathvectors[currentRow][j]) {
+            continue;
         }
-        for (int i = j + 1; i < _row; i++) {
+        if (_mathvectors[currentRow][j] != 1) {
+            _mathvectors[currentRow] = _mathvectors[currentRow].scale(1 / _mathvectors[currentRow][j]);
+        }
+        for (int i = currentRow + 1; i < _row; i++) {
             if (_mathvectors[i][j]) {
                 _mathvectors[i] = _mathvectors[i] + _mathvectors[j].scale(-_mathvectors[i][j]);
             }
         }
+        if (at(currentRow + 1, j + 1)) {
+            cout << currentRow << endl;
+            currentRow++;
+        }
     }
-    if (_mathvectors[_row - 1][_row - 1] != 1) {
+    if (_mathvectors[_row - 1][_row - 1] != 1 && _mathvectors[_row - 1][_row - 1]) {
         _mathvectors[_row - 1] = _mathvectors[_row - 1].scale(1 / _mathvectors[_row - 1][_row - 1]);
     }
+    // for (int i = 0; i < _row; i++) {
+    //     for (int j = 0; j < _column; j++) {
+    //         cout << at(i + 1, j + 1) << " ";
+    //     }
+    //     cout << endl;
+    // }
 }
 
 void Matrix::backSubstitution() {
