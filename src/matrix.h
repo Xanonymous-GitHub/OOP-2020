@@ -89,6 +89,7 @@ MathVector Matrix::gaussianElimination() {
     rowReduction();
     validError();
     backSubstitution();
+    validError();
     return getAllContent();
 }
 
@@ -101,14 +102,28 @@ MathVector Matrix::getAllContent() {
 }
 
 void Matrix::validError() {
+    bool infinite = false, ulimit = false;
     for (int i = 0; i < _row; i++) {
         double rowTotal = 0;
+        bool centerIsZero = false;
         for (int j = 0; j < _column - 1; j++) {
+            if (i == j && at(i + 1, j + 1) == 0) {
+                centerIsZero = true;
+            }
             rowTotal += at(i + 1, j + 1);
         }
-        if (!rowTotal) {
-            throw("");
+        if ((!rowTotal) && centerIsZero) {
+            if (at(i, _column)) {
+                ulimit = true;
+            } else {
+                infinite = true;
+            }
         }
+    }
+    if (ulimit) {
+        throw("no solution!");
+    } else if (infinite) {
+        throw("Infinite solutions!");
     }
 }
 
