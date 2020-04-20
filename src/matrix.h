@@ -1,8 +1,6 @@
 #ifndef MATRIX_H
 #define MATRIX_H
 #include "math_vector.h"
-#include <iostream>
-using namespace std;
 
 class Matrix {
 public:
@@ -84,12 +82,6 @@ void Matrix::backSubstitution() {
                 _mathvectors[i] = _mathvectors[i] + _mathvectors[j].scale(-_mathvectors[i][j]);
             }
         }
-    }
-    for (int i = 0; i < _row; i++) {
-        for (int j = 0; j < _column; j++) {
-            cout << _mathvectors[i][j] << " ";
-        }
-        cout << endl;
     }
 }
 
