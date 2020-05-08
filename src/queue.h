@@ -1,9 +1,6 @@
 #ifndef QUEUE_H
 #define QUEUE_H
 
-#include <iostream>
-using namespace std;
-
 template <class NodeGenericType>
 struct node {
     NodeGenericType data;
