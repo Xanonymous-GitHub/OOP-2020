@@ -2,7 +2,7 @@
 
 all: directories bin/ut_all
 
-bin/ut_all: test/ut_main.cpp test/ut_matrix.h test/ut_vector.h src/math_vector.h src/matrix.h
+bin/ut_all: test/ut_main.cpp test/ut_queue.h src/queue.h
 	g++ -std=c++11 test/ut_main.cpp -o bin/ut_all -lgtest -lpthread
 
 directories:

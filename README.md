@@ -1,62 +1,61 @@
 # OOP 2020 108820003 HW
 ### All made by Xanonymous.
-We have received a notification requesting to "close the HomeWork code project" on github. 
-In response, we have taken or "may" have taken the following actions: 
-1. The git remote setting of github has been removed from this project. 
-2. The github repository url may have been changed or its permissions set to private.
-After these operations, you will not be able to obtain our github project,
-and of course you will not be able to see the original code.
-What is you can see is it just like the same as everything is never happened.
-Best regards, Xanonymous.
+
 
 ```bash
-[==========] Running 19 tests from 2 test suites.
+[==========] Running 22 tests from 2 test suites.
 [----------] Global test environment set-up.
-[----------] 9 tests from MatrixTest
-[ RUN      ] MatrixTest.Matrix_constructor
-[       OK ] MatrixTest.Matrix_constructor (0 ms)
-[ RUN      ] MatrixTest.Matrix_constructor_exception
-[       OK ] MatrixTest.Matrix_constructor_exception (0 ms)
-[ RUN      ] MatrixTest.copy_constructor
-[       OK ] MatrixTest.copy_constructor (0 ms)
-[ RUN      ] MatrixTest.row_reduction
-[       OK ] MatrixTest.row_reduction (0 ms)
-[ RUN      ] MatrixTest.back_substitution
-[       OK ] MatrixTest.back_substitution (0 ms)
-[ RUN      ] MatrixTest.gaussian_elimination_normal1
-[       OK ] MatrixTest.gaussian_elimination_normal1 (0 ms)
-[ RUN      ] MatrixTest.gaussian_elimination_normal2
-[       OK ] MatrixTest.gaussian_elimination_normal2 (0 ms)
-[ RUN      ] MatrixTest.gaussian_elimination_infinite_solution
-[       OK ] MatrixTest.gaussian_elimination_infinite_solution (0 ms)
-[ RUN      ] MatrixTest.gaussian_elimination_no_solution
-[       OK ] MatrixTest.gaussian_elimination_no_solution (0 ms)
-[----------] 9 tests from MatrixTest (0 ms total)
+[----------] 11 tests from QueueTest
+[ RUN      ] QueueTest.defaultConstructor
+[       OK ] QueueTest.defaultConstructor (0 ms)
+[ RUN      ] QueueTest.push_int
+[       OK ] QueueTest.push_int (0 ms)
+[ RUN      ] QueueTest.push_double
+[       OK ] QueueTest.push_double (0 ms)
+[ RUN      ] QueueTest.push_char
+[       OK ] QueueTest.push_char (0 ms)
+[ RUN      ] QueueTest.pop_int
+[       OK ] QueueTest.pop_int (0 ms)
+[ RUN      ] QueueTest.pop_double
+[       OK ] QueueTest.pop_double (0 ms)
+[ RUN      ] QueueTest.pop_char
+[       OK ] QueueTest.pop_char (0 ms)
+[ RUN      ] QueueTest.pop_empty_exception
+[       OK ] QueueTest.pop_empty_exception (0 ms)
+[ RUN      ] QueueTest.push_10_int_and_pop_them
+[       OK ] QueueTest.push_10_int_and_pop_them (0 ms)
+[ RUN      ] QueueTest.at_out_of_range_exception
+[       OK ] QueueTest.at_out_of_range_exception (0 ms)
+[ RUN      ] QueueTest.clear
+[       OK ] QueueTest.clear (0 ms)
+[----------] 11 tests from QueueTest (0 ms total)
 
-[----------] 10 tests from VectorTest
-[ RUN      ] VectorTest.MathVector_default_constructor
-[       OK ] VectorTest.MathVector_default_constructor (0 ms)
-[ RUN      ] VectorTest.MathVector_normal_constructor
-[       OK ] VectorTest.MathVector_normal_constructor (0 ms)
-[ RUN      ] VectorTest.MathVector_zero_constructor
-[       OK ] VectorTest.MathVector_zero_constructor (1 ms)
-[ RUN      ] VectorTest.copy_constructor
-[       OK ] VectorTest.copy_constructor (0 ms)
-[ RUN      ] VectorTest.Object_assignment
-[       OK ] VectorTest.Object_assignment (0 ms)
-[ RUN      ] VectorTest.Object_assignment2
-[       OK ] VectorTest.Object_assignment2 (0 ms)
-[ RUN      ] VectorTest.operator_add
-[       OK ] VectorTest.operator_add (0 ms)
-[ RUN      ] VectorTest.add_normal
-[       OK ] VectorTest.add_normal (0 ms)
-[ RUN      ] VectorTest.add_exception
-[       OK ] VectorTest.add_exception (0 ms)
-[ RUN      ] VectorTest.scale
-[       OK ] VectorTest.scale (0 ms)
-[----------] 10 tests from VectorTest (1 ms total)
+[----------] 11 tests from QueueTestByNySelf
+[ RUN      ] QueueTestByNySelf.defaultConstructor
+[       OK ] QueueTestByNySelf.defaultConstructor (0 ms)
+[ RUN      ] QueueTestByNySelf.push_int
+[       OK ] QueueTestByNySelf.push_int (0 ms)
+[ RUN      ] QueueTestByNySelf.push_double
+[       OK ] QueueTestByNySelf.push_double (0 ms)
+[ RUN      ] QueueTestByNySelf.push_char
+[       OK ] QueueTestByNySelf.push_char (0 ms)
+[ RUN      ] QueueTestByNySelf.pop_int
+[       OK ] QueueTestByNySelf.pop_int (0 ms)
+[ RUN      ] QueueTestByNySelf.pop_double
+[       OK ] QueueTestByNySelf.pop_double (0 ms)
+[ RUN      ] QueueTestByNySelf.pop_char
+[       OK ] QueueTestByNySelf.pop_char (0 ms)
+[ RUN      ] QueueTestByNySelf.pop_empty_exception
+[       OK ] QueueTestByNySelf.pop_empty_exception (0 ms)
+[ RUN      ] QueueTestByNySelf.push_10000_long_long_and_pop_them
+[       OK ] QueueTestByNySelf.push_10000_long_long_and_pop_them (3 ms)
+[ RUN      ] QueueTestByNySelf.at_out_of_range_exception
+[       OK ] QueueTestByNySelf.at_out_of_range_exception (0 ms)
+[ RUN      ] QueueTestByNySelf.clear
+[       OK ] QueueTestByNySelf.clear (0 ms)
+[----------] 11 tests from QueueTestByNySelf (3 ms total)
 
 [----------] Global test environment tear-down
-[==========] 19 tests from 2 test suites ran. (1 ms total)
-[  PASSED  ] 19 tests.
+[==========] 22 tests from 2 test suites ran. (3 ms total)
+[  PASSED  ] 22 tests.
 ```

@@ -1,7 +1,7 @@
 #include <gtest/gtest.h>
 
-#include "./ut_matrix.h"
-#include "./ut_vector.h"
+#include "./ta_ut_queue.h"
+#include "./ut_queue.h"
 
 int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
