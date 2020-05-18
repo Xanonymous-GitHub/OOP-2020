@@ -85,12 +85,12 @@ void Polygon::__sortVectors() {
         double
             angleA = baseVector.angle(A),
             angleB = baseVector.angle(B);
-        if (baseVector.partOuterProduct(A)) {
-            angleA = 2 * M_PI - angleA;
-        }
-        if (baseVector.partOuterProduct(B)) {
-            angleB = 2 * M_PI - angleB;
-        }
+        // if (baseVector.partOuterProduct(A)) {
+        //     angleA = 2 * M_PI - angleA;
+        // }
+        // if (baseVector.partOuterProduct(B)) {
+        //     angleB = 2 * M_PI - angleB;
+        // }
         return angleA < angleB;
     });
 }
