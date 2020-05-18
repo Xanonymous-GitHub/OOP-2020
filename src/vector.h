@@ -103,7 +103,7 @@ double Vector::__innerProduct(Vector otherVector) const {
 
 double Vector::angle(Vector otherVector) const {
     double result = acos(__innerProduct(otherVector) / (this->length() * otherVector.length()));
-    if (!(partOuterProduct(otherVector))) {
+    if (partOuterProduct(otherVector)) {
         result = 2 * M_PI - result;
     }
     return result;
