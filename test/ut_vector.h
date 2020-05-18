@@ -60,10 +60,10 @@ TEST(VECTOR, length) {
 TEST(VECTOR, angle) {
     double d1[] = {3, 4}, d2[] = {7, 24};
     Vector v11(d1, 2), v12(d2, 2);
-    ASSERT_NEAR(0.359707, v11.angle(v12), 0.001);
+    ASSERT_NEAR(0.35970699958495639, v11.angle(v12), 0.001);
     double d3[] = {5, 12}, d4[] = {9, 40};
     Vector v14(d3, 2), v13(d4, 2);
-    ASSERT_NEAR(5.92347830759463, v13.angle(v14), 0.001);
+    ASSERT_NEAR(6.1097086298276162, v13.angle(v14), 0.001);
 }
 
 #endif

@@ -37,11 +37,11 @@ TEST(POLYGON, perimeter) {
 }
 
 TEST(POLYGON, area) {
-    double d1[] = {0, 0}, d2[] = {0, 1}, d3[] = {1, 0}, d4[] = {1, 1};
+    double d1[] = {0, 0}, d2[] = {3, 1}, d3[] = {2, 2}, d4[] = {2, 0};
     Vector v1(d1, 2), v2(d2, 2), v3(d3, 2), v4(d4, 2);
     Vector vectors[] = {v1, v2, v3, v4};
     Polygon p1(vectors, 4);
-    ASSERT_NEAR(1, p1.area(), 0.001);
+    ASSERT_NEAR(3, p1.area(), 0.001);
 }
 
 TEST(POLYGON, findAll) {

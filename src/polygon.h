@@ -36,6 +36,14 @@ Polygon::Polygon(Vector vectors[], int amountOfSides) {
     for (int vectorIndex = 0; vectorIndex < _amountOfSides; vectorIndex++) {
         _vectors[vectorIndex] = vectors[vectorIndex];
     }
+    cout << "dump at constructor start" << endl;
+    for (int i = 0; i < _amountOfSides; i++) {
+        for (int j = 0; j < _vectors[0].dim(); j++) {
+            cout << _vectors[i].at(j + 1) << " ";
+        }
+        cout << endl;
+    }
+    cout << "dump end" << endl;
 }
 
 Polygon::~Polygon() {
