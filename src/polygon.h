@@ -117,6 +117,7 @@ double Polygon::area() {
     }
     cout << "call at area" << endl;
     __sortVectors();
+
     int leftPointIndex = 1, rightPointIndex = 2;
     while (rightPointIndex <= _amountOfSides - 1) {
         cout << "hi" << rightPointIndex << endl;
@@ -130,6 +131,7 @@ vector<Polygon *> findAll(RandomAccessIterator begin, RandomAccessIterator end, 
     vector<Polygon *> result;
     for (auto iterator = begin; iterator != end; iterator++) {
         if (condition(*iterator)) {
+            cout << "cccccccccc is " << (*iterator)->area() << endl;
             result.push_back(*iterator);
         }
     }
