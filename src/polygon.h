@@ -45,6 +45,9 @@ Polygon::~Polygon() {
 }
 
 Vector Polygon::point(int position) {
+    if (position < 0 || position > _amountOfSides) {
+        throw "cc";
+    }
     return _vectors[position - 1];
 }
 
@@ -53,7 +56,6 @@ int Polygon::sides() {
 }
 
 double Polygon::perimeter() {
-    // __sortVectors();
     double perimeter = 0;
     for (int vectorIndex = 0; vectorIndex < _amountOfSides; vectorIndex++) {
         perimeter += ((_vectors[vectorIndex] - _vectors[(vectorIndex + 1) % _amountOfSides]).length());

@@ -40,6 +40,9 @@ int Vector::dim() {
 }
 
 double Vector::at(int position) {
+    if (position < 0 || position > _dimension) {
+        throw "haha";
+    }
     return _entries[position - 1];
 }
 
