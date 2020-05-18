@@ -105,11 +105,11 @@ double Polygon::area() {
         throw "not a polygon!";
     }
     __sortVectors();
-
     int leftPointIndex = 1, rightPointIndex = 2;
     while (rightPointIndex <= _amountOfSides - 1) {
         result += __heronFormula(_vectors[0], _vectors[leftPointIndex++], _vectors[rightPointIndex++]);
     }
+    cout << result << endl;
     return result;
 }
 

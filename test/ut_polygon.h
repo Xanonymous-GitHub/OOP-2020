@@ -53,15 +53,18 @@ TEST(POLYGON, findAll) {
     Vector v4(d4, 3), v5(d2, 3);
     Vector vectors2[] = {v4, v5};
     Polygon *p2 = new Polygon(vectors2, 2);
-    double d6[] = {-1.1, 2, 8}, d7[] = {1.2, 2.3, -3}, d8[] = {4, 4, 4};
+    double d6[] = {-1.1, 2, 8}, d7[] = {1.9, 2.3, -3}, d8[] = {4, 4, 4};
     Vector v6(d6, 3), v7(d7, 3), v8(d8, 3);
     Vector vectors3[] = {v6, v7, v8};
     Polygon *p3 = new Polygon(vectors3, 3);
     vector<Polygon *> pp{p1, p2, p3};
     vector<Polygon *> pp2{p1, p3};
-    vector<Polygon *> pp3{p1, p3};
+    vector<Polygon *> pp3{p1, p2};
     ASSERT_TRUE(pp2 == findAll(pp.begin(), pp.end(), [](Polygon *p) {
         return p->sides() == 3;
+    }));
+    ASSERT_TRUE(pp3 == findAll(pp.begin(), pp.end(), [](Polygon *p) {
+        return p->point(2).at(1) == 1.2;
     }));
 }
 
