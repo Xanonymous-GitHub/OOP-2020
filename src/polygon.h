@@ -36,14 +36,7 @@ Polygon::Polygon(Vector vectors[], int amountOfSides) {
     for (int vectorIndex = 0; vectorIndex < _amountOfSides; vectorIndex++) {
         _vectors[vectorIndex] = vectors[vectorIndex];
     }
-    // cout << "dump at constructor start" << endl;
-    // for (int i = 0; i < _amountOfSides; i++) {
-    //     for (int j = 0; j < _vectors[0].dim(); j++) {
-    //         cout << _vectors[i].at(j + 1) << " ";
-    //     }
-    //     cout << endl;
-    // }
-    // cout << "dump end" << endl;
+    __sortVectors();
 }
 
 Polygon::~Polygon() {
@@ -60,7 +53,7 @@ int Polygon::sides() {
 }
 
 double Polygon::perimeter() {
-    __sortVectors();
+    // __sortVectors();
     double perimeter = 0;
     for (int vectorIndex = 0; vectorIndex < _amountOfSides; vectorIndex++) {
         perimeter += ((_vectors[vectorIndex] - _vectors[(vectorIndex + 1) % _amountOfSides]).length());
@@ -112,29 +105,17 @@ double Polygon::area() {
     if ((_amountOfSides - 2) <= 0) {
         throw "not a polygon!";
     }
-    __sortVectors();
-
-    // cout << "dump start" << endl;
-    // for (int i = 0; i < _amountOfSides; i++) {
-    //     for (int j = 0; j < _vectors[0].dim(); j++) {
-    //         cout << _vectors[i].at(j + 1) << " ";
-    //     }
-    //     cout << endl;
-    // }
-    // cout << "dump end" << endl;
-
     int leftPointIndex = 1, rightPointIndex = 2;
     while (rightPointIndex <= _amountOfSides - 1) {
         result += __heronFormula(_vectors[0], _vectors[leftPointIndex++], _vectors[rightPointIndex++]);
     }
-    // cout << result << endl;
     return result;
 }
 
 template <class RandomAccessIterator, class Condition>
 vector<Polygon *> findAll(RandomAccessIterator begin, RandomAccessIterator end, Condition condition) {
     vector<Polygon *> result;
-    for (RandomAccessIterator _iterator = begin; _iterator != end; _iterator++) {
+    for (auto _iterator = begin; _iterator != end; _iterator++) {
         if (condition(*_iterator)) {
             result.push_back(*_iterator);
         }
