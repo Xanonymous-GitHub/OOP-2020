@@ -36,14 +36,14 @@ Polygon::Polygon(Vector vectors[], int amountOfSides) {
     for (int vectorIndex = 0; vectorIndex < _amountOfSides; vectorIndex++) {
         _vectors[vectorIndex] = vectors[vectorIndex];
     }
-    cout << "dump at constructor start" << endl;
-    for (int i = 0; i < _amountOfSides; i++) {
-        for (int j = 0; j < _vectors[0].dim(); j++) {
-            cout << _vectors[i].at(j + 1) << " ";
-        }
-        cout << endl;
-    }
-    cout << "dump end" << endl;
+    // cout << "dump at constructor start" << endl;
+    // for (int i = 0; i < _amountOfSides; i++) {
+    //     for (int j = 0; j < _vectors[0].dim(); j++) {
+    //         cout << _vectors[i].at(j + 1) << " ";
+    //     }
+    //     cout << endl;
+    // }
+    // cout << "dump end" << endl;
 }
 
 Polygon::~Polygon() {
@@ -82,7 +82,7 @@ Vector &Polygon::__getCenter() {
 void Polygon::__sortVectors() {
     Vector center = __getCenter();
     Vector baseVector = _vectors[0] - center;
-    std::sort(_vectors, _vectors + _amountOfSides, [baseVector, center](Vector vectorA, Vector vectorB) {
+    std::sort(_vectors + 2, _vectors + _amountOfSides, [baseVector, center](Vector vectorA, Vector vectorB) {
         Vector
             A = vectorA - center,
             B = vectorB - center;
@@ -114,20 +114,20 @@ double Polygon::area() {
     }
     __sortVectors();
 
-    cout << "dump start" << endl;
-    for (int i = 0; i < _amountOfSides; i++) {
-        for (int j = 0; j < _vectors[0].dim(); j++) {
-            cout << _vectors[i].at(j + 1) << " ";
-        }
-        cout << endl;
-    }
-    cout << "dump end" << endl;
+    // cout << "dump start" << endl;
+    // for (int i = 0; i < _amountOfSides; i++) {
+    //     for (int j = 0; j < _vectors[0].dim(); j++) {
+    //         cout << _vectors[i].at(j + 1) << " ";
+    //     }
+    //     cout << endl;
+    // }
+    // cout << "dump end" << endl;
 
     int leftPointIndex = 1, rightPointIndex = 2;
     while (rightPointIndex <= _amountOfSides - 1) {
         result += __heronFormula(_vectors[0], _vectors[leftPointIndex++], _vectors[rightPointIndex++]);
     }
-    cout << result << endl;
+    // cout << result << endl;
     return result;
 }
 
