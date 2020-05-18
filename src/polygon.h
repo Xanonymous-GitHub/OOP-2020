@@ -82,7 +82,7 @@ Vector &Polygon::__getCenter() {
 void Polygon::__sortVectors() {
     Vector center = __getCenter();
     Vector baseVector = _vectors[0] - center;
-    sort(_vectors + 1, _vectors + _amountOfSides, [baseVector, center](Vector vectorA, Vector vectorB) {
+    std::sort(_vectors + 1, _vectors + _amountOfSides, [baseVector, center](Vector vectorA, Vector vectorB) {
         Vector
             A = vectorA - center,
             B = vectorB - center;

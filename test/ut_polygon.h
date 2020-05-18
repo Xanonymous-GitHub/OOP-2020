@@ -37,11 +37,16 @@ TEST(POLYGON, perimeter) {
 }
 
 TEST(POLYGON, area) {
-    double d1[] = {0, 0}, d2[] = {3, 1}, d3[] = {2, 2}, d4[] = {2, 0};
+    double d1[] = {0, 0}, d2[] = {2, 0}, d3[] = {3, 1}, d4[] = {2, 2};
     Vector v1(d1, 2), v2(d2, 2), v3(d3, 2), v4(d4, 2);
     Vector vectors[] = {v1, v2, v3, v4};
     Polygon p1(vectors, 4);
     ASSERT_NEAR(3, p1.area(), 0.001);
+    double d5[] = {0, 0}, d6[] = {2, 0}, d7[] = {1, 3}, d8[] = {2, 2}, d9[] = {3, 1};
+    Vector v5(d5, 2), v6(d6, 2), v7(d7, 2), v8(d8, 2), v9(d9, 2);
+    Vector vectors2[] = {v5, v6, v7, v8, v9};
+    Polygon p2(vectors2, 5);
+    ASSERT_NEAR(5, p2.area(), 0.001);
 }
 
 TEST(POLYGON, findAll) {
@@ -61,11 +66,11 @@ TEST(POLYGON, findAll) {
     vector<Polygon *> pp2{p1, p3};
     vector<Polygon *> pp3{p1, p2};
     ASSERT_TRUE(pp2 == findAll(pp.begin(), pp.end(), [](Polygon *p) {
-        return p->sides() == 3;
-    }));
+                    return p->sides() == 3;
+                }));
     ASSERT_TRUE(pp3 == findAll(pp.begin(), pp.end(), [](Polygon *p) {
-        return p->point(2).at(1) == 1.2;
-    }));
+                    return p->point(2).at(1) == 1.2;
+                }));
 }
 
 #endif
