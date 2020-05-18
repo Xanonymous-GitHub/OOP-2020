@@ -12,7 +12,6 @@ private:
 public:
     Vector();
     Vector(double[], int);
-    // ~Vector();
     int dim();
     double at(int);
     Vector &operator+(Vector);
@@ -35,11 +34,6 @@ Vector::Vector(double entries[], int dimension) {
         _entries[entryIndex] = entries[entryIndex];
     }
 }
-
-// Vector::~Vector() {
-//     // delete[] _entries;
-//     _entries = nullptr;
-// }
 
 int Vector::dim() {
     return _dimension;

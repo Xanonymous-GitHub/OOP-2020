@@ -68,29 +68,19 @@ Vector &Polygon::__getCenter() {
             entries[dimensionIndex] += ((_vectors[vectorIndex].at(dimensionIndex + 1)) / _amountOfSides);
         }
     }
-    // cout << entries[0] << " " << entries[1] << endl;
     return *new Vector(entries, dimension);
 }
 
 void Polygon::__sortVectors() {
     Vector center = __getCenter();
-    // cout << center.at(1) << " " << center.at(2) << endl;
     Vector baseVector = _vectors[0] - center;
-    cout << "base is: " << _vectors[0].at(1) << " " << _vectors[0].at(1) << endl;
     sort(_vectors + 1, _vectors + _amountOfSides, [baseVector, center](Vector vectorA, Vector vectorB) {
-        cout << "here" << endl;
         Vector
             A = vectorA - center,
             B = vectorB - center;
         double
             angleA = baseVector.angle(A),
             angleB = baseVector.angle(B);
-        // if (baseVector.partOuterProduct(A)) {
-        //     angleA = 2 * M_PI - angleA;
-        // }
-        // if (baseVector.partOuterProduct(B)) {
-        //     angleB = 2 * M_PI - angleB;
-        // }
         return angleA < angleB;
     });
 }
@@ -106,7 +96,6 @@ double Polygon::__heronFormula(Vector pointA, Vector pointB, Vector pointC) cons
         B = b.length(),
         C = c.length();
     double S = 0.5 * (A + B + C);
-    cout << (double)sqrt(S * (S - A) * (S - B) * (S - C)) << endl;
     return (double)sqrt(S * (S - A) * (S - B) * (S - C));
 }
 
@@ -115,12 +104,10 @@ double Polygon::area() {
     if ((_amountOfSides - 2) <= 0) {
         throw "not a polygon!";
     }
-    cout << "call at area" << endl;
     __sortVectors();
 
     int leftPointIndex = 1, rightPointIndex = 2;
     while (rightPointIndex <= _amountOfSides - 1) {
-        cout << "hi" << rightPointIndex << endl;
         result += __heronFormula(_vectors[0], _vectors[leftPointIndex++], _vectors[rightPointIndex++]);
     }
     return result;
@@ -131,7 +118,6 @@ vector<Polygon *> findAll(RandomAccessIterator begin, RandomAccessIterator end, 
     vector<Polygon *> result;
     for (auto iterator = begin; iterator != end; iterator++) {
         if (condition(*iterator)) {
-            cout << "cccccccccc is " << (*iterator)->area() << endl;
             result.push_back(*iterator);
         }
     }

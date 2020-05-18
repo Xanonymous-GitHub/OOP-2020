@@ -5,21 +5,13 @@
 #include "../src/vector.h"
 #include <vector>
 
-#include <iostream>
-using namespace std;
-// TEST(notest, no) {
-//     ASSERT_TRUE(true);
-// }
-
 TEST(POLYGON, point) {
     double d1[] = {1, 2}, d2[] = {3, 4}, d3[] = {-2, -3};
     Vector v1(d1, 2), v2(d2, 2), v3(d3, 2);
     Vector vectors[] = {v1, v2, v3};
     Polygon p1(vectors, 3), p2(vectors, 3);
     for (int i = 0; i < 3; i++) {
-        cout << (int)(p1.point(i + 1) == p2.point(i + 1)) << endl;
-        // ASSERT_TRUE(p1.point(i + 1) == p2.point(i + 1));
-        ASSERT_TRUE(true);
+        ASSERT_TRUE(p1.point(i + 1) == p2.point(i + 1));
     }
 }
 
@@ -34,7 +26,6 @@ TEST(POLYGON, sides) {
     Vector vectors2[] = {v4, v5};
     Polygon p2(vectors2, 2);
     ASSERT_EQ(2, p2.sides());
-    // ASSERT_TRUE(true);
 }
 
 TEST(POLYGON, perimeter) {
@@ -50,7 +41,6 @@ TEST(POLYGON, area) {
     Vector v1(d1, 2), v2(d2, 2), v3(d3, 2), v4(d4, 2);
     Vector vectors[] = {v1, v2, v3, v4};
     Polygon p1(vectors, 4);
-    // double S = 0.5 * (2.236067 + 2 + 2.236067);
     ASSERT_NEAR(1, p1.area(), 0.001);
 }
 

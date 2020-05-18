@@ -3,9 +3,6 @@
 
 #include "../src/vector.h"
 
-#include <iostream>
-using namespace std;
-
 TEST(VECTOR, dim) {
     double d1[] = {1, 2}, d2[] = {1, 2, 3, 4};
     Vector v1, v2(d1, 2), v3(d2, 4);
