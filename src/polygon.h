@@ -134,9 +134,9 @@ double Polygon::area() {
 template <class RandomAccessIterator, class Condition>
 vector<Polygon *> findAll(RandomAccessIterator begin, RandomAccessIterator end, Condition condition) {
     vector<Polygon *> result;
-    for (auto iterator = begin; iterator != end; iterator++) {
-        if (condition(*iterator)) {
-            result.push_back(*iterator);
+    for (RandomAccessIterator _iterator = begin; _iterator != end; _iterator++) {
+        if (condition(*_iterator)) {
+            result.push_back(*_iterator);
         }
     }
     return result;
