@@ -5,9 +5,6 @@
 #include "../src/vector.h"
 #include <vector>
 
-#include <iostream>
-using namespace std;
-
 TEST(POLYGON, point) {
     double d1[] = {1, 2}, d2[] = {3, 4}, d3[] = {-2, -3};
     Vector v1(d1, 2), v2(d2, 2), v3(d3, 2);
@@ -71,7 +68,7 @@ TEST(POLYGON, findAll) {
     ASSERT_TRUE(pp2 == findAll(pp.begin(), pp.end(), [](Polygon *p) {
         return p->sides() == 3;
     }));
-    ASSERT_TRUE(pp3 == findAll(pp.begin(), pp.end(), [](Polygon *p) {
+    ASSERT_FALSE(pp3 == findAll(pp.begin(), pp.end(), [](Polygon *p) {
         return p->point(2).at(1) == 1.2;
     }));
 }

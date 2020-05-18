@@ -45,10 +45,6 @@ Polygon::~Polygon() {
 }
 
 Vector Polygon::point(int position) {
-    for (int i = 0; i < 2; i++) {
-        cout << "point: " << _vectors[position - 1].at(i + 1) << " ";
-    }
-    cout << endl;
     return _vectors[position - 1];
 }
 
