@@ -2,7 +2,6 @@
 #define BINARY_H
 
 #include <cmath>
-#include <iostream>
 using namespace std;
 
 class Binary

@@ -33,9 +33,31 @@ protected:
   }
   std::vector<Binary *> bins;
 };
-//do it yourself
 
 TEST_F(UtilTest, findAllByCanConvertToIntTest)
+{
+  std::vector<Binary *> result = findAll(bins.begin(), bins.end(), [](Binary *b) {
+    return uInt::canConvert(*b);
+  });
+  ASSERT_EQ(4, result.size());
+  ASSERT_EQ(8, result[0]->toDec());
+  ASSERT_EQ(115, result[1]->toDec());
+  ASSERT_EQ(29555, result[2]->toDec());
+  ASSERT_EQ(1936946035, result[3]->toDec());
+}
+
+TEST_F(UtilTest, findAllByCanConvertToShortTest)
+{
+  std::vector<Binary *> result = findAll(bins.begin(), bins.end(), [](Binary *b) {
+    return uShort::canConvert(*b);
+  });
+  ASSERT_EQ(3, result.size());
+  ASSERT_EQ(8, result[0]->toDec());
+  ASSERT_EQ(115, result[1]->toDec());
+  ASSERT_EQ(29555, result[2]->toDec());
+}
+
+TEST_F(UtilTest, findAllByCanConvertToCharTest)
 {
   std::vector<Binary *> result = findAll(bins.begin(), bins.end(), [](Binary *b) {
     return uChar::canConvert(*b);
@@ -52,4 +74,21 @@ TEST_F(UtilTest, converallToShortTest)
   ASSERT_EQ(8, result[0].toDec());
   ASSERT_EQ(115, result[1].toDec());
   ASSERT_EQ(29555, result[2].toDec());
+}
+
+TEST_F(UtilTest, converallToCharTest)
+{
+  std::vector<uChar> result = convertAll<uChar>(bins);
+  ASSERT_EQ(2, result.size());
+  ASSERT_EQ(8, result[0].toChar());
+  ASSERT_EQ(115, result[1].toChar());
+}
+TEST_F(UtilTest, converallToIntTest)
+{
+  std::vector<uInt> result = convertAll<uInt>(bins);
+  ASSERT_EQ(4, result.size());
+  ASSERT_EQ(8, result[0].toDec());
+  ASSERT_EQ(115, result[1].toDec());
+  ASSERT_EQ(29555, result[2].toDec());
+  ASSERT_EQ(1936946035, result[3].toDec());
 }
