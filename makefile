@@ -1,5 +1,5 @@
 .PHONY: directories clean
-
+#
 all: directories bin/ut_all
 
 bin/ut_all: test/ut_main.cpp test/ut_polygon.h test/ut_vector.h src/vector.h src/polygon.h
