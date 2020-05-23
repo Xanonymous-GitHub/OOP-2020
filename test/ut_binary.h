@@ -19,6 +19,10 @@ protected:
       *data4;
   void TearDown()
   {
+    delete[] data1;
+    delete[] data2;
+    delete[] data3;
+    delete[] data4;
   }
 };
 

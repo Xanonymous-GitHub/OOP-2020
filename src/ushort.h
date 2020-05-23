@@ -3,13 +3,17 @@
 
 #include "binary.h"
 
-class uShort{
+class uShort
+{
 public:
-  static bool canConvert(Binary const & bits){}
+  static bool canConvert(Binary const &bits)
+  {
+    
+  }
 
-  uShort(Binary const & bits){}
+  uShort(Binary const &bits) {}
 
-  unsigned short toDec(){}
+  unsigned short toDec() {}
 
 private:
   Binary _b;
