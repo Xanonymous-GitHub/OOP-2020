@@ -1,15 +1,23 @@
 .PHONY: directories clean
-#
+
+CFLAGS = -std=c++11
+LIBS = -lgtest -lpthread
+SRC = src/*.h
+TEST = test/*.h
+
 all: directories bin/ut_all
 
-bin/ut_all: test/ut_main.cpp test/ut_polygon.h test/ut_vector.h src/vector.h src/polygon.h
-	g++ -std=c++11 test/ut_main.cpp -o bin/ut_all -lgtest -lpthread
+bin/ut_all: obj/ut_main.o
+	g++ $(CFLAGS) -o $@ $< $(LIBS)
+
+obj/ut_main.o: test/ut_main.cpp $(TEST) $(SRC)
+	g++ $(CFLAGS) -c $< -o $@
 
 directories:
-	mkdir -p bin
+	mkdir -p bin obj
 
 clean:
-	rm -rf bin
+	rm -rf bin obj
 
 stat:
-	wc src/*.h src/*.cpp test/*.h test/*.cpp
+	wc src/* test/*
