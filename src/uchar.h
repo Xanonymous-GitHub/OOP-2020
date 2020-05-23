@@ -42,6 +42,11 @@ public:
     }
     return (char)result;
   }
+
+  static int getSize()
+  {
+    return 1;
+  }
 };
 
 #endif

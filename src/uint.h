@@ -41,6 +41,11 @@ public:
     }
     return (unsigned int)result;
   }
+
+  static int getSize()
+  {
+    return 4;
+  }
 };
 
 #endif

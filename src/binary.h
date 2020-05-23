@@ -117,6 +117,21 @@ public:
         }
         return result;
     }
+
+    Binary shrimSize(int new_size)
+    {
+        int tmp[new_size];
+        for (int i = _size - new_size, j = 0; i < _size; i++, j++)
+        {
+            tmp[j] = _bits[i];
+        }
+        int *new_bits = new int[new_size];
+        for (int i = 0; i < new_size; i++)
+        {
+            new_bits[i] = tmp[i];
+        }
+        return *new Binary(new_bits, new_size);
+    }
 };
 
 #endif
