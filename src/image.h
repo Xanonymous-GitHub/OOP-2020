@@ -29,14 +29,11 @@ public:
     }
 
     string render() const override {
-        if (imageSrc.empty()) {
-            return $s("<img />");
-        }
         string inlineStyle = "";
         inlineStyle += "top:" + top + ";";
         inlineStyle += "left:" + left + ";";
         inlineStyle += "position:absolute;";
-        return $s("<img") + $s(" id='") + $s(getId()) + $s("' src='") + $s(imageSrc) + $s("' style='") + $s(inlineStyle) + $s("' />");
+        return $s("<img") + $s(" id='") + $s(getId()) + $s("' src='") + $s(imageSrc) + $s("' style='") + $s(inlineStyle) + $s("'/>");
     }
 
     void setPosition(string top, string left) {

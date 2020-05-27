@@ -28,9 +28,6 @@ public:
     }
 
     string render() const override {
-        if (content.empty()) {
-            return $s("<p></p>");
-        }
         string inlineStyle = "";
         inlineStyle += "color:" + color + ";";
         inlineStyle += "font-size:" + fontSize + ";";
