@@ -1,4 +1,4 @@
 #include "../src/text.h"
-TEST(a, b) {
+TEST(a1, b1) {
     ASSERT_TRUE(true);
 }

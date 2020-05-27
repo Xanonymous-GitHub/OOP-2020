@@ -2,6 +2,6 @@
 #include "../src/image.h"
 #include "../src/text.h"
 
-TEST(a, b) {
+TEST(a3, b3) {
     ASSERT_TRUE(true);
 }

@@ -1,4 +1,4 @@
 #include "../src/image.h"
-TEST(a, b) {
+TEST(a2, b2) {
     ASSERT_TRUE(true);
 }
