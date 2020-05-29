@@ -3,68 +3,48 @@
 
 
 ```bash
-[==========] Running 25 tests from 3 test cases.
+[==========] Running 15 tests from 3 test suites.
 [----------] Global test environment set-up.
-[----------] 10 tests from BinaryTest
-[ RUN      ] BinaryTest.defaultConstructor
-[       OK ] BinaryTest.defaultConstructor (0 ms)
-[ RUN      ] BinaryTest.changeTypeConstructor
-[       OK ] BinaryTest.changeTypeConstructor (0 ms)
-[ RUN      ] BinaryTest.changeTypeConstructorDataNotCorrect
-[       OK ] BinaryTest.changeTypeConstructorDataNotCorrect (0 ms)
-[ RUN      ] BinaryTest.copyConstructor
-[       OK ] BinaryTest.copyConstructor (0 ms)
-[ RUN      ] BinaryTest.CopyAssignment
-[       OK ] BinaryTest.CopyAssignment (0 ms)
-[ RUN      ] BinaryTest.fillWithZero
-[       OK ] BinaryTest.fillWithZero (0 ms)
-[ RUN      ] BinaryTest.fillWithZeroSizeError
-[       OK ] BinaryTest.fillWithZeroSizeError (0 ms)
-[ RUN      ] BinaryTest.toDec
-[       OK ] BinaryTest.toDec (0 ms)
-[ RUN      ] BinaryTest.at
-[       OK ] BinaryTest.at (0 ms)
-[ RUN      ] BinaryTest.atOutOfRange
-[       OK ] BinaryTest.atOutOfRange (0 ms)
-[----------] 10 tests from BinaryTest (37 ms total)
+[----------] 4 tests from html
+[ RUN      ] html.appendTag
+[       OK ] html.appendTag (0 ms)
+[ RUN      ] html.appendText
+[       OK ] html.appendText (0 ms)
+[ RUN      ] html.appendImage
+[       OK ] html.appendImage (0 ms)
+[ RUN      ] html.render
+[       OK ] html.render (0 ms)
+[----------] 4 tests from html (0 ms total)
 
-[----------] 9 tests from NumericTest
-[ RUN      ] NumericTest.uCharCanConvert
-[       OK ] NumericTest.uCharCanConvert (0 ms)
-[ RUN      ] NumericTest.uCharConstructorCanNotConvert
-[       OK ] NumericTest.uCharConstructorCanNotConvert (0 ms)
-[ RUN      ] NumericTest.uCharToChar
-[       OK ] NumericTest.uCharToChar (0 ms)
-[ RUN      ] NumericTest.uShortCanConvert
-[       OK ] NumericTest.uShortCanConvert (0 ms)
-[ RUN      ] NumericTest.uShortConstructorCanNotConvert
-[       OK ] NumericTest.uShortConstructorCanNotConvert (0 ms)
-[ RUN      ] NumericTest.uShortToDec
-[       OK ] NumericTest.uShortToDec (0 ms)
-[ RUN      ] NumericTest.uIntCanConvert
-[       OK ] NumericTest.uIntCanConvert (0 ms)
-[ RUN      ] NumericTest.uIntConstructorCanNotConvert
-[       OK ] NumericTest.uIntConstructorCanNotConvert (0 ms)
-[ RUN      ] NumericTest.uIntToDec
-[       OK ] NumericTest.uIntToDec (1 ms)
-[----------] 9 tests from NumericTest (27 ms total)
+[----------] 5 tests from image
+[ RUN      ] image.defaultConstructor
+[       OK ] image.defaultConstructor (0 ms)
+[ RUN      ] image.transtypeConstructor
+[       OK ] image.transtypeConstructor (0 ms)
+[ RUN      ] image.render
+[       OK ] image.render (0 ms)
+[ RUN      ] image.setPosition
+[       OK ] image.setPosition (1 ms)
+[ RUN      ] image.setSrc
+[       OK ] image.setSrc (0 ms)
+[----------] 5 tests from image (1 ms total)
 
-[----------] 6 tests from UtilTest
-[ RUN      ] UtilTest.findAllByCanConvertToIntTest
-[       OK ] UtilTest.findAllByCanConvertToIntTest (0 ms)
-[ RUN      ] UtilTest.findAllByCanConvertToShortTest
-[       OK ] UtilTest.findAllByCanConvertToShortTest (0 ms)
-[ RUN      ] UtilTest.findAllByCanConvertToCharTest
-[       OK ] UtilTest.findAllByCanConvertToCharTest (0 ms)
-[ RUN      ] UtilTest.converallToShortTest
-[       OK ] UtilTest.converallToShortTest (0 ms)
-[ RUN      ] UtilTest.converallToCharTest
-[       OK ] UtilTest.converallToCharTest (0 ms)
-[ RUN      ] UtilTest.converallToIntTest
-[       OK ] UtilTest.converallToIntTest (0 ms)
-[----------] 6 tests from UtilTest (21 ms total)
+[----------] 6 tests from text
+[ RUN      ] text.defaultConstructor
+[       OK ] text.defaultConstructor (0 ms)
+[ RUN      ] text.transtypeConstructor
+[       OK ] text.transtypeConstructor (0 ms)
+[ RUN      ] text.setColor
+[       OK ] text.setColor (0 ms)
+[ RUN      ] text.setFontSize
+[       OK ] text.setFontSize (0 ms)
+[ RUN      ] text.setText
+[       OK ] text.setText (0 ms)
+[ RUN      ] text.render
+[       OK ] text.render (0 ms)
+[----------] 6 tests from text (0 ms total)
 
 [----------] Global test environment tear-down
-[==========] 25 tests from 3 test cases ran. (104 ms total)
-[  PASSED  ] 25 tests.
+[==========] 15 tests from 3 test suites ran. (1 ms total)
+[  PASSED  ] 15 tests.
 ```
