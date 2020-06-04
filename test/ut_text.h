@@ -1,56 +1,38 @@
 #include "../src/text.h"
-#include <gtest/gtest.h>
+#include "../src/color.h"
+#include "../src/fontsize.h"
 
-TEST(text, defaultConstructor) {
+TEST(TEXT, default_constructor){
   Text t;
-  ASSERT_EQ("<p id='' style='color:#000000;font-size:16px;'></p>", t.render());
+  ASSERT_EQ("<p id='' style=''></p>", t.render());
 }
 
-TEST(text, transtypeConstructor) {
-  Text t("7eb1c9bfaa3ba2956c6c0724c5dfeebf06765494");
-  ASSERT_EQ("<p id='7eb1c9bfaa3ba2956c6c0724c5dfeebf06765494' "
-            "style='color:#000000;font-size:16px;'></p>",
-            t.render());
+TEST(TEXT, constuctor){
+  Text t("oop_text_001");
+  ASSERT_EQ("<p id='oop_text_001' style=''></p>", t.render());
 }
 
-TEST(text, setColor) {
+TEST(TEXT, set_text){
   Text t;
-  ASSERT_EQ("<p id='' style='color:#000000;font-size:16px;'></p>", t.render());
+  t.setText("test content");
+  ASSERT_EQ("<p id='' style=''>test content</p>",t.render());
 }
 
-TEST(text, setFontSize) {
+TEST(TEXT, add_color){
   Text t;
-  t.setColor("dc39f0352b14c145dcfa24527c4ac9b68015c7de");
-  ASSERT_EQ("<p id='' "
-            "style='color:dc39f0352b14c145dcfa24527c4ac9b68015c7de;font-size:"
-            "16px;'></p>",
-            t.render());
+  t.addStyle(new Color("#FFFFFF"));
+  ASSERT_EQ("<p id='' style='color:#FFFFFF;'></p>",t.render());
 }
 
-TEST(text, setText) {
+TEST(TEXT, add_fontSize){
   Text t;
-  t.setText("bc55d08e98b8025a8f9e01e2c595b3eba36c4ab5");
-  ASSERT_EQ("<p id='' "
-            "style='color:#000000;font-size:16px;'>"
-            "bc55d08e98b8025a8f9e01e2c595b3eba36c4ab5</p>",
-            t.render());
+  t.addStyle(new FontSize(20));
+  ASSERT_EQ("<p id='' style='font-size:20px;'></p>",t.render());
 }
 
-TEST(text, render) {
-  Text t1;
-  ASSERT_EQ("<p id='' style='color:#000000;font-size:16px;'></p>", t1.render());
-  Text t2;
-  ASSERT_EQ("<p id='' style='color:#000000;font-size:16px;'></p>", t2.render());
-  Text t3;
-  t3.setColor("dc39f0352b14c145dcfa24527c4ac9b68015c7de");
-  ASSERT_EQ("<p id='' "
-            "style='color:dc39f0352b14c145dcfa24527c4ac9b68015c7de;font-size:"
-            "16px;'></p>",
-            t3.render());
-  Text t4;
-  t4.setText("bc55d08e98b8025a8f9e01e2c595b3eba36c4ab5");
-  ASSERT_EQ("<p id='' "
-            "style='color:#000000;font-size:16px;'>"
-            "bc55d08e98b8025a8f9e01e2c595b3eba36c4ab5</p>",
-            t4.render());
+TEST(TEXT, add_multiple_style){
+  Text t;
+  t.addStyle(new Color("#FFFFFF"));
+  t.addStyle(new FontSize(20));
+  ASSERT_EQ("<p id='' style='color:#FFFFFF;font-size:20px;'></p>",t.render());
 }

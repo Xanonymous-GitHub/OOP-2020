@@ -2,14 +2,14 @@
 
 all: directories bin/ut_all
 
-bin/ui_main: directories src/main.cpp src/html.h src/tag.h src/text.h src/image.h
+bin/ui_main: src/main.cpp src/html.h src/tag.h src/text.h src/image.h \
+			src/color.h src/fontsize.h src/position.h src/size.h src/style.h
 	g++ -std=c++11 src/main.cpp -o bin/ui_main
 
-bin/ut_all: obj/ut_main.o
-	g++ -std=c++11 -o bin/ut_all obj/ut_main.o -lgtest -lpthread
-
-obj/ut_main.o: test/ut_main.cpp src/tag.h test/ut_html.h test/ut_image.h test/ut_text.h src/html.h src/text.h src/image.h
-	g++ -std=c++11 -c test/ut_main.cpp -o obj/ut_main.o
+bin/ut_all: test/ut_main.cpp test/ut_style.h test/ut_html.h test/ut_image.h \
+			test/ut_text.h src/tag.h src/html.h src/text.h src/image.h \
+			src/style.h src/color.h src/fontsize.h src/position.h src/size.h
+	g++ -std=c++11  test/ut_main.cpp -o bin/ut_all -lgtest -lpthread
 
 directories:
 	mkdir -p bin obj

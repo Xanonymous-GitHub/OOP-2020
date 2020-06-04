@@ -4,6 +4,7 @@
 #define $s(x) string(x)
 
 #include "tag.h"
+#include "./style.h"
 #include <string>
 using namespace std;
 
@@ -12,6 +13,7 @@ private:
     string content;
     string color;
     string fontSize;
+    string inlineStyle;
     void initValues() {
         content = "";
         color = "#000000";
@@ -28,10 +30,7 @@ public:
     }
 
     string render() const override {
-        string inlineStyle = "";
-        inlineStyle += "color:" + color + ";";
-        inlineStyle += "font-size:" + fontSize + ";";
-        return $s("<p") + $s(" id='") + $s(getId()) + $s("' style='") + $s(inlineStyle) + $s("'>") + $s(content) + $s("</p>");
+        return $s("<p") + $s(" id='") + $s(getId()) + $s("' style='") + inlineStyle + $s("'>") + $s(content) + $s("</p>");
     }
 
     void setColor(string color) {
@@ -44,6 +43,10 @@ public:
 
     void setText(string content) {
         this->content = content;
+    }
+
+    void addStyle(Style *style) {
+        inlineStyle += style->renderStyle();
     }
 };
 
