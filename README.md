@@ -3,48 +3,77 @@
 
 
 ```bash
-[==========] Running 15 tests from 3 test suites.
+[==========] Running 28 tests from 4 test suites.
 [----------] Global test environment set-up.
-[----------] 4 tests from html
-[ RUN      ] html.appendTag
-[       OK ] html.appendTag (0 ms)
-[ RUN      ] html.appendText
-[       OK ] html.appendText (0 ms)
-[ RUN      ] html.appendImage
-[       OK ] html.appendImage (0 ms)
-[ RUN      ] html.render
-[       OK ] html.render (0 ms)
-[----------] 4 tests from html (0 ms total)
+[----------] 4 tests from CircleTest
+[ RUN      ] CircleTest.test_constructor
+[       OK ] CircleTest.test_constructor (0 ms)
+[ RUN      ] CircleTest.test_default_param
+[       OK ] CircleTest.test_default_param (1 ms)
+[ RUN      ] CircleTest.test_perimeter
+[       OK ] CircleTest.test_perimeter (0 ms)
+[ RUN      ] CircleTest.test_area
+[       OK ] CircleTest.test_area (0 ms)
+[----------] 4 tests from CircleTest (1 ms total)
 
-[----------] 5 tests from image
-[ RUN      ] image.defaultConstructor
-[       OK ] image.defaultConstructor (0 ms)
-[ RUN      ] image.transtypeConstructor
-[       OK ] image.transtypeConstructor (0 ms)
-[ RUN      ] image.render
-[       OK ] image.render (0 ms)
-[ RUN      ] image.setPosition
-[       OK ] image.setPosition (1 ms)
-[ RUN      ] image.setSrc
-[       OK ] image.setSrc (0 ms)
-[----------] 5 tests from image (1 ms total)
+[----------] 4 tests from ConvexPolygonTest
+[ RUN      ] ConvexPolygonTest.test_perimeter
+[       OK ] ConvexPolygonTest.test_perimeter (0 ms)
+[ RUN      ] ConvexPolygonTest.test_area
+[       OK ] ConvexPolygonTest.test_area (0 ms)
+[ RUN      ] ConvexPolygonTest.test_area_2
+[       OK ] ConvexPolygonTest.test_area_2 (0 ms)
+[ RUN      ] ConvexPolygonTest.test_to_string
+[       OK ] ConvexPolygonTest.test_to_string (0 ms)
+[----------] 4 tests from ConvexPolygonTest (0 ms total)
 
-[----------] 6 tests from text
-[ RUN      ] text.defaultConstructor
-[       OK ] text.defaultConstructor (0 ms)
-[ RUN      ] text.transtypeConstructor
-[       OK ] text.transtypeConstructor (0 ms)
-[ RUN      ] text.setColor
-[       OK ] text.setColor (0 ms)
-[ RUN      ] text.setFontSize
-[       OK ] text.setFontSize (0 ms)
-[ RUN      ] text.setText
-[       OK ] text.setText (0 ms)
-[ RUN      ] text.render
-[       OK ] text.render (0 ms)
-[----------] 6 tests from text (0 ms total)
+[----------] 8 tests from IOTest
+[ RUN      ] IOTest.test_area_ascending
+[       OK ] IOTest.test_area_ascending (0 ms)
+[ RUN      ] IOTest.test_area_descending
+[       OK ] IOTest.test_area_descending (0 ms)
+[ RUN      ] IOTest.test_perimeter_ascending
+[       OK ] IOTest.test_perimeter_ascending (0 ms)
+[ RUN      ] IOTest.test_perimeter_descending
+[       OK ] IOTest.test_perimeter_descending (0 ms)
+[ RUN      ] IOTest.handle_input_circle
+[       OK ] IOTest.handle_input_circle (1 ms)
+[ RUN      ] IOTest.handle_input_convex_polygon
+[       OK ] IOTest.handle_input_convex_polygon (0 ms)
+[ RUN      ] IOTest.handle_input_multi_shapes
+[       OK ] IOTest.handle_input_multi_shapes (0 ms)
+[ RUN      ] IOTest.handle_output_circie
+[       OK ] IOTest.handle_output_circie (1 ms)
+[----------] 8 tests from IOTest (2 ms total)
+
+[----------] 12 tests from VectorTest
+[ RUN      ] VectorTest.test_default_constructor
+[       OK ] VectorTest.test_default_constructor (0 ms)
+[ RUN      ] VectorTest.test_constructor
+[       OK ] VectorTest.test_constructor (0 ms)
+[ RUN      ] VectorTest.test_constructor_dimension_only
+[       OK ] VectorTest.test_constructor_dimension_only (0 ms)
+[ RUN      ] VectorTest.test_operator_add
+[       OK ] VectorTest.test_operator_add (0 ms)
+[ RUN      ] VectorTest.test_operator_add_exception
+[       OK ] VectorTest.test_operator_add_exception (0 ms)
+[ RUN      ] VectorTest.test_operator_subtract
+[       OK ] VectorTest.test_operator_subtract (0 ms)
+[ RUN      ] VectorTest.test_operator_subtract_exception
+[       OK ] VectorTest.test_operator_subtract_exception (0 ms)
+[ RUN      ] VectorTest.test_length
+[       OK ] VectorTest.test_length (0 ms)
+[ RUN      ] VectorTest.test_angle
+[       OK ] VectorTest.test_angle (0 ms)
+[ RUN      ] VectorTest.test_area
+[       OK ] VectorTest.test_area (0 ms)
+[ RUN      ] VectorTest.test_area_2
+[       OK ] VectorTest.test_area_2 (0 ms)
+[ RUN      ] VectorTest.test_to_string
+[       OK ] VectorTest.test_to_string (0 ms)
+[----------] 12 tests from VectorTest (0 ms total)
 
 [----------] Global test environment tear-down
-[==========] 15 tests from 3 test suites ran. (1 ms total)
-[  PASSED  ] 15 tests.
+[==========] 28 tests from 4 test suites ran. (3 ms total)
+[  PASSED  ] 28 tests.
 ```
