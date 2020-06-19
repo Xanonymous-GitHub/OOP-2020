@@ -42,7 +42,7 @@ private:
         Vector center = __getCenter();
         int amountOfSides = __entries.size();
         Vector baseVector = __entries[0] - center;
-        std::sort(__entries.begin() + 1, __entries.end(), [baseVector, center](Vector vectorA, Vector vectorB) {
+        sort(__entries.begin() + 1, __entries.end(), [baseVector, center](Vector vectorA, Vector vectorB) {
             Vector
                 A = vectorA - center,
                 B = vectorB - center;
