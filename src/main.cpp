@@ -1,23 +1,37 @@
-#include "./html.h"
-#include "./image.h"
-#include "./text.h"
+#include "util.h"
+
 #include <iostream>
+#include <vector>
+
 int main(int argc, char **argv) {
-  ios::sync_with_stdio(0), cin.tie(0);
-  Html h;
-  Text t1;
-  Text t2;
-  Image i;
-  t1.setText("Hello, World");
-  t1.setColor("#FF0800");
-  t2.setText("This is a Hash Browns :D");
-  t2.setFontSize("32px");
-  i.setSrc("Hash Browns.png");
-  i.setPosition("200px", "0px");
-  h.appendText(t1);
-  h.appendText(t2);
-  h.appendImage(i);
-  h.outputHtml();
-  std::cout << "output successful" << std::endl;
-  return 0;
+
+    // // handle argument exception
+    // if (argc < 5) {
+    //     std::cout << "Usage:" << std::endl;
+    //     std::cout << "\tgeo ${input_file} ${output_file} ${compare_target} ${order}" << std::endl;
+    //     std::cout << "Options:" << std::endl;
+    //     std::cout << "\t${compare_target} can be either \"area\" "
+    //                  "or \"perimeter\""
+    //               << std::endl;
+    //     std::cout << "\t${order} can be either \"inc\" or \"dec\"" << std::endl;
+    //     return -1;
+    // }
+
+    // // translate input arguments
+    // std::string inputFile = argv[1];
+    // std::string outputFile = argv[2];
+    // std::string compare = argv[3];
+    // std::string order = argv[4];
+
+    // get a list of shape from a given text file
+    // std::vector<Shape *> shapes = handleInput(inputFile);
+    std::vector<Shape *> shapes = handleInput("shape_data_3");
+
+    // // sort these shapes by given conditions
+    // std::vector<Shape *> sortedShapes = handleSort(shapes, compare, order);
+
+    // // finally, output the sorted shapes to a text file
+    // handleOutput(outputFile, sortedShapes);
+
+    return 0;
 }

@@ -2,116 +2,141 @@
 #define VECTOR_H
 
 #include <cmath>
+#include <sstream>
+#include <string>
+#include <vector>
+using namespace std;
 
 class Vector {
 private:
-    int _dimension;
-    double *_entries;
-    double __innerProduct(Vector) const;
+    vector<double> __vector;
+
+    double __innerProduct(Vector other_vector) const {
+        if (other_vector.dim() != this->dim()) {
+            throw "dimension not match!";
+        }
+        double result = 0;
+        for (int entryIndex = 0; entryIndex < this->dim(); entryIndex++) {
+            result += __vector[entryIndex] * other_vector.at(entryIndex);
+        }
+        return result;
+    }
+
+    bool __partOuterProduct(Vector other_vector) const {
+        return this->area(other_vector) > 0;
+    }
 
 public:
-    Vector();
-    Vector(double[], int);
-    int dim();
-    double at(int);
-    Vector &operator+(Vector);
-    Vector &operator-(Vector);
-    bool operator==(Vector);
-    double length() const;
-    double angle(Vector) const;
-    bool partOuterProduct(Vector) const;
-};
-
-Vector::Vector() {
-    _dimension = -1;
-    _entries = nullptr;
-}
-
-Vector::Vector(double entries[], int dimension) {
-    _dimension = dimension;
-    _entries = new double[_dimension];
-    for (int entryIndex = 0; entryIndex < _dimension; entryIndex++) {
-        _entries[entryIndex] = entries[entryIndex];
+    Vector() {
+        __vector.clear();
     }
-}
 
-int Vector::dim() {
-    return _dimension;
-}
-
-double Vector::at(int position) {
-    return _entries[position - 1];
-}
-
-Vector &Vector::operator+(Vector otherVector) {
-    if (otherVector.dim() != _dimension) {
-        throw "dimension not match!";
+    Vector(int length) {
+        __vector.clear();
+        for (int i = 0; i < length; i++) {
+            __vector.push_back(0);
+        }
     }
-    double *newEntries = new double[_dimension];
-    for (int entryIndex = 0; entryIndex < _dimension; entryIndex++) {
-        newEntries[entryIndex] = (_entries[entryIndex] + otherVector._entries[entryIndex]);
-    }
-    Vector *newVector = new Vector(newEntries, _dimension);
-    delete[] newEntries;
-    return *newVector;
-}
 
-Vector &Vector::operator-(Vector otherVector) {
-    if (otherVector.dim() != _dimension) {
-        throw "dimension not match!";
+    Vector(double *new_vector, int length) {
+        __vector.clear();
+        for (int i = 0; i < length; i++) {
+            __vector.push_back(new_vector[i]);
+        }
     }
-    double *newEntries = new double[_dimension];
-    for (int entryIndex = 0; entryIndex < _dimension; entryIndex++) {
-        newEntries[entryIndex] = (_entries[entryIndex] - otherVector._entries[entryIndex]);
-    }
-    Vector *newVector = new Vector(newEntries, _dimension);
-    delete[] newEntries;
-    return *newVector;
-}
 
-bool Vector::operator==(Vector otherVector) {
-    if (otherVector.dim() == _dimension) {
-        for (int entryIndex = 0; entryIndex < _dimension; entryIndex++) {
-            if (_entries[entryIndex] != otherVector.at(entryIndex + 1)) {
-                return false;
+    Vector(vector<double> new_vector, int length) {
+        __vector.clear();
+        for (int i = 0; i < length; i++) {
+            __vector.push_back(new_vector[i]);
+        }
+    }
+
+    double area(Vector other_vector) const {
+        return ((this->at(0) * other_vector.at(1)) - (this->at(1) * other_vector.at(0))) / 2;
+    }
+
+    double at(int index) const {
+        int vector_size = __vector.size();
+        if ((!vector_size) || index < 0 || index > vector_size - 1) {
+            throw "no";
+        }
+        return __vector[index];
+    }
+
+    int dim() const {
+        if (__vector.size() == 0) {
+            return -1; // WTF? so...
+        }
+        return __vector.size();
+    }
+
+    double length() const {
+        double result = 0;
+        int vector_size = this->dim();
+        for (int i = 0; i < vector_size; i++) {
+            result += __vector[i] * __vector[i];
+        }
+        return sqrt(result);
+    }
+
+    string toString() const {
+        string result = "(";
+        int vector_size = this->dim();
+        for (int i = 0; i < vector_size; i++) {
+            stringstream stream;
+            string tmp;
+            stream << __vector[i];
+            stream >> tmp;
+            result += tmp;
+            if (i < vector_size - 1) {
+                result += ",";
             }
         }
-    } else {
-        return false;
+        result.push_back(')');
+        return result;
     }
-    return true;
-}
 
-double Vector::length() const {
-    double result = 0;
-    for (int entryIndex = 0; entryIndex < _dimension; entryIndex++) {
-        result += _entries[entryIndex] * _entries[entryIndex];
+    Vector &operator+(const Vector &other_vector) {
+        if (other_vector.dim() != this->dim()) {
+            throw "no";
+        }
+        int vector_size = this->dim();
+        double *new_vector_entries = new double[vector_size];
+        for (int i = 0; i < vector_size; i++) {
+            new_vector_entries[i] = (this->at(i) + other_vector.at(i));
+        }
+        return *new Vector(new_vector_entries, vector_size);
     }
-    return (double)sqrt(result);
-}
 
-double Vector::__innerProduct(Vector otherVector) const {
-    if (otherVector.dim() != _dimension) {
-        throw "dimension not match!";
+    Vector &operator-(const Vector &other_vector) {
+        if (other_vector.dim() != this->dim()) {
+            throw "no";
+        }
+        int vector_size = this->dim();
+        double *new_vector_entries = new double[vector_size];
+        for (int i = 0; i < vector_size; i++) {
+            new_vector_entries[i] = (this->at(i) - other_vector.at(i));
+        }
+        return *new Vector(new_vector_entries, vector_size);
     }
-    double result = 0;
-    for (int entryIndex = 0; entryIndex < _dimension; entryIndex++) {
-        result += this->_entries[entryIndex] * otherVector.at(entryIndex + 1);
-    }
-    return result;
-}
 
-double Vector::angle(Vector otherVector) const {
-    double result = acos(__innerProduct(otherVector) / (this->length() * otherVector.length()));
-    if (!(partOuterProduct(otherVector))) {
-        result = 2 * M_PI - result;
+    Vector &operator=(const Vector &other_vector) {
+        int vector_size = other_vector.dim();
+        __vector.clear();
+        for (int i = 0; i < vector_size; i++) {
+            __vector.push_back(other_vector.at(i));
+        }
+        return *this;
     }
-    return result;
-}
 
-bool Vector::partOuterProduct(Vector otherVector) const {
-    double result = _entries[0] * otherVector.at(2) - _entries[1] * otherVector.at(1);
-    return result > 0;
-}
+    double angle(Vector other_vector) const {
+        double result = acos(__innerProduct(other_vector) / (this->length() * other_vector.length()));
+        if (!(__partOuterProduct(other_vector))) {
+            result = 2 * M_PI - result;
+        }
+        return result;
+    }
+};
 
 #endif
