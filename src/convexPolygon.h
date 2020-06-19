@@ -3,6 +3,7 @@
 
 #include "shape.h"
 #include "vector.h"
+#include <algorithm>
 #include <sstream>
 #include <string>
 #include <vector>
@@ -42,7 +43,7 @@ private:
         Vector center = __getCenter();
         int amountOfSides = __entries.size();
         Vector baseVector = __entries[0] - center;
-        sort(__entries.begin() + 1, __entries.end(), [baseVector, center](Vector vectorA, Vector vectorB) {
+        std::sort(__entries.begin() + 1, __entries.end(), [baseVector, center](Vector vectorA, Vector vectorB) {
             Vector
                 A = vectorA - center,
                 B = vectorB - center;
