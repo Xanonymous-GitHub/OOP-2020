@@ -5,7 +5,7 @@
 #include "ut_style.h"
 #include "ut_image.h"
 #include "ut_table.h"
-// #include "ut_util.h"
+#include "ut_util.h"
 
 int main(int argc, char **argv)
 {
