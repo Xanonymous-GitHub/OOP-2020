@@ -27,7 +27,9 @@ int main(int argc, char *argv[])
     std::string order = argv[3];
 
     Html html;
-    html.appendTag(&tableFromFile(inputFile));
+    Table *table = new Table(tableFromFile(inputFile));
+    html.appendTag(table);
     html.outputHtml();
+    delete table;
     return 0;
 }
