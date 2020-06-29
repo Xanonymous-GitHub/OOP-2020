@@ -3,77 +3,117 @@
 
 
 ```bash
-[==========] Running 28 tests from 4 test suites.
+[==========] Running 42 tests from 8 test cases.
 [----------] Global test environment set-up.
-[----------] 4 tests from CircleTest
-[ RUN      ] CircleTest.test_constructor
-[       OK ] CircleTest.test_constructor (0 ms)
-[ RUN      ] CircleTest.test_default_param
-[       OK ] CircleTest.test_default_param (1 ms)
-[ RUN      ] CircleTest.test_perimeter
-[       OK ] CircleTest.test_perimeter (0 ms)
-[ RUN      ] CircleTest.test_area
-[       OK ] CircleTest.test_area (0 ms)
-[----------] 4 tests from CircleTest (1 ms total)
+[----------] 6 tests from TEXT
+[ RUN      ] TEXT.default_constructor
+[       OK ] TEXT.default_constructor (0 ms)
+[ RUN      ] TEXT.constuctor
+[       OK ] TEXT.constuctor (0 ms)
+[ RUN      ] TEXT.set_text
+[       OK ] TEXT.set_text (0 ms)
+[ RUN      ] TEXT.add_color
+[       OK ] TEXT.add_color (0 ms)
+[ RUN      ] TEXT.add_fontSize
+[       OK ] TEXT.add_fontSize (0 ms)
+[ RUN      ] TEXT.add_multiple_style
+[       OK ] TEXT.add_multiple_style (1 ms)
+[----------] 6 tests from TEXT (15 ms total)
 
-[----------] 4 tests from ConvexPolygonTest
-[ RUN      ] ConvexPolygonTest.test_perimeter
-[       OK ] ConvexPolygonTest.test_perimeter (0 ms)
-[ RUN      ] ConvexPolygonTest.test_area
-[       OK ] ConvexPolygonTest.test_area (0 ms)
-[ RUN      ] ConvexPolygonTest.test_area_2
-[       OK ] ConvexPolygonTest.test_area_2 (0 ms)
-[ RUN      ] ConvexPolygonTest.test_to_string
-[       OK ] ConvexPolygonTest.test_to_string (0 ms)
-[----------] 4 tests from ConvexPolygonTest (0 ms total)
+[----------] 4 tests from HTML
+[ RUN      ] HTML.render
+[       OK ] HTML.render (0 ms)
+[ RUN      ] HTML.append_text
+[       OK ] HTML.append_text (0 ms)
+[ RUN      ] HTML.append_image
+[       OK ] HTML.append_image (0 ms)
+[ RUN      ] HTML.append_multiChild
+[       OK ] HTML.append_multiChild (0 ms)
+[----------] 4 tests from HTML (11 ms total)
 
-[----------] 8 tests from IOTest
-[ RUN      ] IOTest.test_area_ascending
-[       OK ] IOTest.test_area_ascending (0 ms)
-[ RUN      ] IOTest.test_area_descending
-[       OK ] IOTest.test_area_descending (0 ms)
-[ RUN      ] IOTest.test_perimeter_ascending
-[       OK ] IOTest.test_perimeter_ascending (0 ms)
-[ RUN      ] IOTest.test_perimeter_descending
-[       OK ] IOTest.test_perimeter_descending (0 ms)
-[ RUN      ] IOTest.handle_input_circle
-[       OK ] IOTest.handle_input_circle (1 ms)
-[ RUN      ] IOTest.handle_input_convex_polygon
-[       OK ] IOTest.handle_input_convex_polygon (0 ms)
-[ RUN      ] IOTest.handle_input_multi_shapes
-[       OK ] IOTest.handle_input_multi_shapes (0 ms)
-[ RUN      ] IOTest.handle_output_circie
-[       OK ] IOTest.handle_output_circie (1 ms)
-[----------] 8 tests from IOTest (2 ms total)
+[----------] 8 tests from STYLE
+[ RUN      ] STYLE.color_default
+[       OK ] STYLE.color_default (0 ms)
+[ RUN      ] STYLE.color_set_the_color
+[       OK ] STYLE.color_set_the_color (0 ms)
+[ RUN      ] STYLE.fontsize_default
+[       OK ] STYLE.fontsize_default (0 ms)
+[ RUN      ] STYLE.fontsize_set_the_size
+[       OK ] STYLE.fontsize_set_the_size (0 ms)
+[ RUN      ] STYLE.position_default
+[       OK ] STYLE.position_default (0 ms)
+[ RUN      ] STYLE.position_set_top_and_left
+[       OK ] STYLE.position_set_top_and_left (0 ms)
+[ RUN      ] STYLE.size_default
+[       OK ] STYLE.size_default (0 ms)
+[ RUN      ] STYLE.size_set_height_and_right
+[       OK ] STYLE.size_set_height_and_right (0 ms)
+[----------] 8 tests from STYLE (22 ms total)
 
-[----------] 12 tests from VectorTest
-[ RUN      ] VectorTest.test_default_constructor
-[       OK ] VectorTest.test_default_constructor (0 ms)
-[ RUN      ] VectorTest.test_constructor
-[       OK ] VectorTest.test_constructor (0 ms)
-[ RUN      ] VectorTest.test_constructor_dimension_only
-[       OK ] VectorTest.test_constructor_dimension_only (0 ms)
-[ RUN      ] VectorTest.test_operator_add
-[       OK ] VectorTest.test_operator_add (0 ms)
-[ RUN      ] VectorTest.test_operator_add_exception
-[       OK ] VectorTest.test_operator_add_exception (0 ms)
-[ RUN      ] VectorTest.test_operator_subtract
-[       OK ] VectorTest.test_operator_subtract (0 ms)
-[ RUN      ] VectorTest.test_operator_subtract_exception
-[       OK ] VectorTest.test_operator_subtract_exception (0 ms)
-[ RUN      ] VectorTest.test_length
-[       OK ] VectorTest.test_length (0 ms)
-[ RUN      ] VectorTest.test_angle
-[       OK ] VectorTest.test_angle (0 ms)
-[ RUN      ] VectorTest.test_area
-[       OK ] VectorTest.test_area (0 ms)
-[ RUN      ] VectorTest.test_area_2
-[       OK ] VectorTest.test_area_2 (0 ms)
-[ RUN      ] VectorTest.test_to_string
-[       OK ] VectorTest.test_to_string (0 ms)
-[----------] 12 tests from VectorTest (0 ms total)
+[----------] 6 tests from IMAGE
+[ RUN      ] IMAGE.default_constructor
+[       OK ] IMAGE.default_constructor (0 ms)
+[ RUN      ] IMAGE.constructor
+[       OK ] IMAGE.constructor (0 ms)
+[ RUN      ] IMAGE.set_src
+[       OK ] IMAGE.set_src (0 ms)
+[ RUN      ] IMAGE.add_position
+[       OK ] IMAGE.add_position (0 ms)
+[ RUN      ] IMAGE.add_size
+[       OK ] IMAGE.add_size (0 ms)
+[ RUN      ] IMAGE.add_multiple_style
+[       OK ] IMAGE.add_multiple_style (0 ms)
+[----------] 6 tests from IMAGE (16 ms total)
+
+[----------] 5 tests from COL
+[ RUN      ] COL.default_constructor
+[       OK ] COL.default_constructor (0 ms)
+[ RUN      ] COL.constructor
+[       OK ] COL.constructor (0 ms)
+[ RUN      ] COL.set_content
+[       OK ] COL.set_content (0 ms)
+[ RUN      ] COL.add_style
+[       OK ] COL.add_style (0 ms)
+[ RUN      ] COL.get_content
+[       OK ] COL.get_content (0 ms)
+[----------] 5 tests from COL (12 ms total)
+
+[----------] 5 tests from ROW
+[ RUN      ] ROW.default_constructor
+[       OK ] ROW.default_constructor (0 ms)
+[ RUN      ] ROW.constructor
+[       OK ] ROW.constructor (0 ms)
+[ RUN      ] ROW.add_style
+[       OK ] ROW.add_style (0 ms)
+[ RUN      ] ROW.add_col
+[       OK ] ROW.add_col (0 ms)
+[ RUN      ] ROW.get_col_content
+[       OK ] ROW.get_col_content (0 ms)
+[----------] 5 tests from ROW (10 ms total)
+
+[----------] 6 tests from TABLE
+[ RUN      ] TABLE.default_constructor
+[       OK ] TABLE.default_constructor (0 ms)
+[ RUN      ] TABLE.constructor
+[       OK ] TABLE.constructor (0 ms)
+[ RUN      ] TABLE.setTitle
+[       OK ] TABLE.setTitle (0 ms)
+[ RUN      ] TABLE.add_style
+[       OK ] TABLE.add_style (0 ms)
+[ RUN      ] TABLE.addRow
+[       OK ] TABLE.addRow (0 ms)
+[ RUN      ] TABLE.sortRow
+[       OK ] TABLE.sortRow (0 ms)
+[----------] 6 tests from TABLE (11 ms total)
+
+[----------] 2 tests from UTIL
+[ RUN      ] UTIL.table_from_file
+[       OK ] UTIL.table_from_file (1 ms)
+[ RUN      ] UTIL.table_from_not_exist_file
+[       OK ] UTIL.table_from_not_exist_file (0 ms)
+[----------] 2 tests from UTIL (4 ms total)
 
 [----------] Global test environment tear-down
-[==========] 28 tests from 4 test suites ran. (3 ms total)
-[  PASSED  ] 28 tests.
+[==========] 42 tests from 8 test cases ran. (130 ms total)
+[  PASSED  ] 42 tests.
 ```

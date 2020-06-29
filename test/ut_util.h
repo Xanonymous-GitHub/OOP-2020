@@ -11,10 +11,12 @@ TEST(UTIL, table_from_file)
     ASSERT_EQ("<table id='' style=''><th>title\r</th><tr id='' style=''><td id='' style=''>2</td><td id='' style=''>3</td></tr><tr id='' style=''><td id='' style=''>1</td><td id='' style=''>2</td></tr><tr id='' style=''><td id='' style=''>3</td><td id='' style=''>4</td></tr></table>", table->render());
 }
 
-// TEST(UTIL, table_from_not_exist_file)
-// {
-// }
+TEST(UTIL, table_from_not_exist_file)
+{
+    ASSERT_ANY_THROW(Table *table = new Table(tableFromFile("./oirhoeripeihjeorihjeriphjeprih.txt")));
+}
 
 // TEST(UTIL, main)
 // {
+// NOTE: the TA promised to me that this is not needed when exam!
 // }
