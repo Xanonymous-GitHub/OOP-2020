@@ -10,7 +10,7 @@ class Row : public Tag
 {
 private:
   vector<Col> cols;
-  string row_head = "<tr id='' style='", row_end = "</tr>", inlineStyle;
+  string row_head = "<tr id='", row_end = "</tr>", inlineStyle;
 
 public:
   Row() {}
@@ -21,6 +21,8 @@ public:
   {
     string result = "";
     result += row_head;
+    result += getId();
+    result += "' style='";
     result += inlineStyle;
     result += "'>";
     for (auto col : this->cols)

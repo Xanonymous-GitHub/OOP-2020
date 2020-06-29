@@ -10,7 +10,7 @@ using namespace std;
 class Table : public Tag
 {
 private:
-  string title, table_head = "<table id='' style='", table_end = "</table>", inlineStyle;
+  string title, table_head = "<table id='", table_end = "</table>", inlineStyle;
   vector<Row> rows;
 
 public:
@@ -22,6 +22,8 @@ public:
   {
     string result = "";
     result += table_head;
+    result += getId();
+    result += "' style='";
     result += inlineStyle;
     result += "'>";
     result += (string("<th>") + this->title + string("</th>"));
