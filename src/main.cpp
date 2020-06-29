@@ -28,6 +28,7 @@ int main(int argc, char *argv[])
 
     Html html;
     Table *table = new Table(tableFromFile(inputFile));
+    table->sortRow(stoi(columnIndex), order);
     html.appendTag(table);
     html.outputHtml();
     delete table;

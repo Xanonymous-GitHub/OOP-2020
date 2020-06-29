@@ -7,6 +7,7 @@ class Style
 {
 public:
     virtual std::string renderStyle() const = 0;
+    virtual ~Style() {}
 };
 
 #endif

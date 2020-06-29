@@ -18,9 +18,11 @@ public:
 
     Tag(string id) : id(id) {}
 
+    virtual ~Tag() {}
+
     string getId() const
     {
-        return id; 
+        return id;
     }
 };
 

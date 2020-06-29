@@ -65,7 +65,7 @@ public:
     {
       throw "NO!";
     }
-    sort(this->rows.begin(), this->rows.end(), [=](Row a, Row b) {
+    sort(this->rows.begin(), this->rows.end(), [=](const Row &a, const Row &b) {
       if (order == "asc")
       {
         return a.getColContent(col) < b.getColContent(col);
