@@ -27,11 +27,16 @@ Table tableFromFile(string filePath)
                 stringstream tmp;
                 Row row;
                 tmp << line;
+                bool __add_row_activate = false;
                 while (tmp >> line)
                 {
+                    __add_row_activate = true;
                     row.addCol(*new Col("", line));
                 }
-                result.addRow(row);
+                if (__add_row_activate)
+                {
+                    result.addRow(row);
+                }
             }
         }
         file.close();
