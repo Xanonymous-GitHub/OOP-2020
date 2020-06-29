@@ -51,6 +51,7 @@ public:
     {
       throw "NO!";
     }
+    cout << "col: " << col << endl;
     sort(this->rows.begin(), this->rows.end(), [=](Row a, Row b) {
       if (order == "asc")
       {
