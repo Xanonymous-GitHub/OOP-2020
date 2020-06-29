@@ -22,18 +22,6 @@ public:
         tags.push_back(child);
     }
 
-    // void appendText(Tag &textChild)
-    // {
-    //     Tag *textChildPointer = &textChild;
-    //     appendTag(textChildPointer);
-    // }
-
-    // void appendImage(Tag &imageChild)
-    // {
-    //     Tag *imageChildPointer = &imageChild;
-    //     appendTag(imageChildPointer);
-    // }
-
     string render()
     {
         string result = "";

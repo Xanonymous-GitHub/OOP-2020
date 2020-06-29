@@ -47,11 +47,6 @@ public:
   {
     inlineStyle += style->renderStyle();
   }
-
-  int __debug_size()
-  {
-    return cols.size();
-  }
 };
 
 #endif

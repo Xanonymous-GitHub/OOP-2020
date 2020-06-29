@@ -3,7 +3,6 @@
 
 #include "tag.h"
 #include "row.h"
-#include <iostream> // debug
 #include <algorithm>
 #include <string>
 using namespace std;
@@ -15,6 +14,13 @@ private:
 
 public:
   Table() {}
+
+  Table(const Table &otherTable) : Tag(otherTable.getId())
+  {
+    this->rows = otherTable.rows;
+    this->inlineStyle = otherTable.inlineStyle;
+    setTitle(otherTable.title);
+  }
 
   Table(string newId) : Tag(newId) {}
 
@@ -35,6 +41,14 @@ public:
     return result;
   }
 
+  Table operator=(const Table &otherTable)
+  {
+    this->rows = otherTable.rows;
+    this->inlineStyle = otherTable.inlineStyle;
+    setTitle(otherTable.title);
+    return *this;
+  }
+
   void setTitle(string title)
   {
     this->title = title;
@@ -47,28 +61,17 @@ public:
 
   void sortRow(int col, string order)
   {
-    cout << "col: " << col << endl;
-    for (auto row : rows)
-    {
-      cout << row.render() << endl;
-    }
     if (order != "asc" && order != "desc")
     {
       throw "NO!";
     }
     sort(this->rows.begin(), this->rows.end(), [=](Row a, Row b) {
-      if (a.__debug_size() <= col || b.__debug_size() <= col)
-      {
-        throw "NO!";
-      }
       if (order == "asc")
       {
-        cout << "a size: " << a.__debug_size() << ", b size: " << a.__debug_size() << endl;
         return a.getColContent(col) < b.getColContent(col);
       }
       else if (order == "desc")
       {
-        cout << "a size: " << a.__debug_size() << ", b size: " << a.__debug_size() << endl;
         return a.getColContent(col) > b.getColContent(col);
       }
       return false;
