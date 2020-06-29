@@ -36,6 +36,10 @@ Table tableFromFile(string filePath)
         }
         file.close();
     }
+    else
+    {
+        throw "NO!";
+    }
     return result;
 }
 

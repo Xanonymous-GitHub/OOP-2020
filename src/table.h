@@ -59,10 +59,12 @@ public:
     sort(this->rows.begin(), this->rows.end(), [=](Row a, Row b) {
       if (order == "asc")
       {
+        cout << "a size: " << a.__debug_size() << ", b size: " << a.__debug_size() << endl;
         return a.getColContent(col) < b.getColContent(col);
       }
       else if (order == "desc")
       {
+        cout << "a size: " << a.__debug_size() << ", b size: " << a.__debug_size() << endl;
         return a.getColContent(col) > b.getColContent(col);
       }
       return false;
