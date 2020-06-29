@@ -10,7 +10,7 @@ using namespace std;
 class Table : public Tag
 {
 private:
-  string title, table_head = "<table id='' style=''>", table_end = "</table>";
+  string title, table_head = "<table id='' style='", table_end = "</table>", inlineStyle;
   vector<Row> rows;
 
 public:
@@ -22,6 +22,8 @@ public:
   {
     string result = "";
     result += table_head;
+    result += inlineStyle;
+    result += "'>";
     result += (string("<th>") + this->title + string("</th>"));
     for (auto row : this->rows)
     {
@@ -58,6 +60,11 @@ public:
       }
       return false;
     });
+  }
+
+  void addStyle(Style *style)
+  {
+    inlineStyle += style->renderStyle();
   }
 };
 

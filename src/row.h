@@ -10,17 +10,19 @@ class Row : public Tag
 {
 private:
   vector<Col> cols;
-  string row_head = "<tr id='' style=''>", row_end = "</tr>";
+  string row_head = "<tr id='' style='", row_end = "</tr>", inlineStyle;
 
 public:
-  Row(){}
-  
+  Row() {}
+
   Row(string newId) : Tag(newId) {}
 
   string render() const override
   {
     string result = "";
     result += row_head;
+    result += inlineStyle;
+    result += "'>";
     for (auto col : this->cols)
     {
       result += col.render();
@@ -37,6 +39,11 @@ public:
   string getColContent(int i) const
   {
     return this->cols[i].getContent();
+  }
+
+  void addStyle(Style *style)
+  {
+    inlineStyle += style->renderStyle();
   }
 };
 

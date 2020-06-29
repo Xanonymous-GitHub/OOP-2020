@@ -8,11 +8,11 @@ using namespace std;
 class Col : public Tag
 {
 private:
-  string content;
+  string content, inlineStyle;
 
 public:
   Col() {}
-  
+
   Col(string newId) : Tag(newId) {}
 
   Col(string newId, string content) : Tag(newId)
@@ -22,7 +22,7 @@ public:
 
   string render() const override
   {
-    return string("<td id='") + getId() + string("' style=''>") + this->getContent() + string("</td>");
+    return string("<td id='") + getId() + string("' style='") + inlineStyle + string("'>") + this->getContent() + string("</td>");
   }
 
   void setContent(string content)
@@ -33,6 +33,11 @@ public:
   string getContent() const
   {
     return this->content;
+  }
+
+  void addStyle(Style *style)
+  {
+    inlineStyle += style->renderStyle();
   }
 };
 
