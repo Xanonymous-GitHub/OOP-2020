@@ -47,11 +47,15 @@ public:
 
   void sortRow(int col, string order)
   {
+    cout << "col: " << col << endl;
+    for (auto row : rows)
+    {
+      cout << row.render() << endl;
+    }
     if (order != "asc" && order != "desc")
     {
       throw "NO!";
     }
-    cout << "col: " << col << endl;
     sort(this->rows.begin(), this->rows.end(), [=](Row a, Row b) {
       if (order == "asc")
       {
