@@ -57,6 +57,10 @@ public:
       throw "NO!";
     }
     sort(this->rows.begin(), this->rows.end(), [=](Row a, Row b) {
+      if (a.__debug_size() <= col || b.__debug_size() <= col)
+      {
+        throw "NO!";
+      }
       if (order == "asc")
       {
         cout << "a size: " << a.__debug_size() << ", b size: " << a.__debug_size() << endl;
